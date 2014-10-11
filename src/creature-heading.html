@@ -1,0 +1,43 @@
+<link rel="import" href="tapered-rule.html">
+<link href='http://fonts.googleapis.com/css?family=Lora:700' rel='stylesheet' type='text/css'>
+
+<template id="creature-heading">
+  <style>
+    ::content > h1 {
+      font-family: 'Lora', serif;
+      color: #7A200D;
+      font-weight: 700;
+      margin: 0;
+      font-size: 25px;
+      letter-spacing: 2px;
+    }
+
+    ::content > h2 {
+      font-weight: normal;
+      font-style: italic;
+      font-size: 13px;
+      margin: 0;
+    }
+  </style>
+  <content select="h1"></content>
+  <content select="h2"></content>
+  <tapered-rule></tapered-rule>
+</template>
+
+<script>
+(function(window, document) {
+  var elemName = 'creature-heading';
+  var thatDoc = document;
+  var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
+  var proto = Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        var template = thisDoc.getElementById(elemName);
+        var clone = thatDoc.importNode(template.content, true);
+        this.createShadowRoot().appendChild(clone);
+      }
+    }
+  });
+  thatDoc.registerElement(elemName, {prototype: proto});
+})(window, document);
+</script>
