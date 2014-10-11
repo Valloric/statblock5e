@@ -1,0 +1,40 @@
+<template id="property-line">
+  <style>
+    :host {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #86220E;
+    }
+
+    ::content > h4 {
+      font-weight: bold;
+      display: inline;
+    }
+
+    ::content > p {
+      display: inline;
+      margin-left: 5px;
+    }
+  </style>
+  <div><content select="h4"></content><content select="p"></content></div>
+</template>
+
+<script>
+(function(window, document) {
+  var elemName = 'property-line';
+  var thatDoc = document;
+  var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
+  var proto = Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        var template = thisDoc.getElementById(elemName);
+        var clone = thatDoc.importNode(template.content, true);
+        this.createShadowRoot().appendChild(clone);
+      }
+    }
+  });
+  thatDoc.registerElement(elemName, {prototype: proto});
+})(window, document);
+</script>
+
+

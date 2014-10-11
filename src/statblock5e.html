@@ -1,4 +1,22 @@
+<link rel="import" href="property-line.html">
+
 <template id="stat-block">
+  <style>
+    :host {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .prop-heading {
+      font-weight: bold;
+      color: #86220E;
+    }
+  </style>
+  <property-line>
+    <h4>Armor Class</h4>
+    <p>11 (hide armor)</p>
+  </property-line>
+
   <p>foobar</p>
 </template>
 
@@ -7,8 +25,8 @@
   // Refers to the "importer", which is index.html
   var thatDoc = document;
 
-  // Refers to the "importee", which is src/hello-world.html
-  var thisDoc =  (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
+  // Refers to the "importee", which is src/statblock5e.html
+  var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
 
   var template = thisDoc.getElementById('stat-block').content;
   var StatBlockProto = Object.create(HTMLElement.prototype);
