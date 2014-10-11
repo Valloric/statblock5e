@@ -1,3 +1,4 @@
+<link rel="import" href="tapered-rule.html">
 <link rel="import" href="property-line.html">
 
 <template id="stat-block">
@@ -10,8 +11,10 @@
     }
   </style>
   <content select="creature-heading"></content>
-  <content select="property-line"></content>
+  <content select=".main-property"></content>
   <content select="abilities-block"></content>
+  <content select=".secondary-property"></content>
+  <tapered-rule></tapered-rule>
 </template>
 
 <script>
