@@ -1,0 +1,34 @@
+<template id="tapered-rule">
+  <style>
+    svg {
+      fill: #86220E;
+      /* Stroke is necessary for good antialiasing in Chrome. */
+      stroke: #86220E;
+      margin-top: 11px;
+      margin-bottom: 6px;
+    }
+  </style>
+  <svg height="5" width="400">
+    <polyline points="0,0 400,2.5 0,5"/>
+  </svg>
+</template>
+
+<script>
+(function(window, document) {
+  var elemName = 'tapered-rule';
+  var thatDoc = document;
+  var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
+  var proto = Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        var template = thisDoc.getElementById(elemName);
+        var clone = thatDoc.importNode(template.content, true);
+        this.createShadowRoot().appendChild(clone);
+      }
+    }
+  });
+  thatDoc.registerElement(elemName, {prototype: proto});
+})(window, document);
+</script>
+
+
