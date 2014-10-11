@@ -1,0 +1,32 @@
+<link rel="import" href="tapered-rule.html">
+<link rel="import" href="property-line.html">
+
+<template id="stat-block">
+  <style>
+    :host {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      display: block;
+      width: 400px;
+    }
+  </style>
+  <content></content>
+</template>
+
+<script>
+(function(window, document) {
+  var elemName = 'stat-block';
+  var thatDoc = document;
+  var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
+  var proto = Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        var template = thisDoc.getElementById(elemName);
+        var clone = thatDoc.importNode(template.content, true);
+        this.createShadowRoot().appendChild(clone);
+      }
+    }
+  });
+  thatDoc.registerElement(elemName, {prototype: proto});
+})(window, document);
+</script>
