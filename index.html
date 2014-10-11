@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Statblock example</title>
-
-    <!-- Importing Web Component's Polyfill -->
+    <!-- Web Components Polyfill -->
     <script src="bower_components/platform/platform.js"></script>
+
+    <link rel="import" href="src/abilities-block.html">
     <link rel="import" href="src/property-line.html">
     <link rel="import" href="src/statblock5e.html">
 </head>
@@ -13,12 +14,23 @@
   <stat-block>
     <property-line>
       <h4>Armor Class</h4>
-      <p>11 (hide armor)</p>
+      <p>18 (natural armor)</p>
     </property-line>
     <property-line>
       <h4>Hit Points</h4>
-      <p>178 (17d10 + 85)</p>
+      <p>33 (6d8 + 6)</p>
     </property-line>
+    <property-line>
+      <h4>Speed</h4>
+      <p>25ft</p>
+    </property-line>
+
+    <abilities-block data-str="14"
+                     data-dex="11"
+                     data-con="13"
+                     data-int="1"
+                     data-wis="3"
+                     data-cha="1"></abilities-block>
   </stat-block>
 </body>
 </html>
