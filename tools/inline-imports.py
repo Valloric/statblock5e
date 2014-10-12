@@ -44,6 +44,7 @@ def finalDoc():
 
 
 def main():
+  print '<!DOCTYPE html>'
   print finalDoc()
 
 
