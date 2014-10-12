@@ -14,8 +14,8 @@ Elements][custom-elements], [Shadow DOM][shadow-dom] and the HTML5 [template][]
 element.
 
 Since Chrome is [currently the only browser][wc-status] that implements all of
-the above specs, statblock5e only works in Chrome. (Firefox is close to providing
-all the necessary support but it's all behind flags.)
+the above specs, **statblock5e only works in Chrome.** (Firefox is close to
+providing all the necessary support but it's all behind flags.)
 
 <div align="center">
   <p><a href="http://valloric.github.io/statblock5e/demo.html">
