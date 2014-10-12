@@ -13,8 +13,9 @@ Components][web-components] specs: [HTML imports][html-import], [Custom
 Elements][custom-elements], [Shadow DOM][shadow-dom] and the HTML5 [template][]
 element.
 
-Since Chrome is currently [the only browser][wc-status] that implements all of
-the above specs, statblock5e only works in Chrome.
+Since Chrome is [currently the only browser][wc-status] that implements all of
+the above specs, statblock5e only works in Chrome. (Firefox is close to providing
+all the necessary support but it's all behind flags.)
 
 **There are _no_ dependencies** (JavaScript or otherwise), **this is entirely
 self-contained**.
