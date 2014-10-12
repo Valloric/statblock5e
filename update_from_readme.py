@@ -49,8 +49,14 @@ def updateSources():
   shutil.rmtree( tempdir )
 
 
+# HTML5 spec says code should be marked with 'language-XXX' class (where XXX is
+# the language).
+def fixCodeBlockClasses( doc ):
+  for elem in doc.select( 'code[class]'):
+    elem['class'] = [ 'language-' + elem['class'][ 0 ] ]
+
+
 def main():
-  updateSources()
   markdown_source = open( 'README.md' ).read()
 
   with open( 'index.html', 'r+' ) as content_file:
@@ -59,6 +65,7 @@ def main():
     new_contents = markdown( unicode( markdown_source, 'utf-8' ),
                             extensions=['fenced_code'] )
     new_tags = BeautifulSoup( new_contents, 'html5lib' )
+    fixCodeBlockClasses( new_tags )
 
     soup = BeautifulSoup( content, "html5lib" )
     elem = soup.find( id='main_content' )
