@@ -53,10 +53,15 @@ def updateSources():
 # the language).
 def fixCodeBlockClasses( doc ):
   for elem in doc.select( 'code[class]'):
-    elem['class'] = [ 'language-' + elem['class'][ 0 ] ]
+    language = elem[ 'class' ][ 0 ]
+    if language == 'html':
+      # Prism.js wants markup instead of html.
+      language = 'markup'
+    elem[ 'class' ] = [ 'language-' + language ]
 
 
 def main():
+  updateSources()
   markdown_source = open( 'README.md' ).read()
 
   with open( 'index.html', 'r+' ) as content_file:

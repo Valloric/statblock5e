@@ -5,6 +5,7 @@
     <meta content="Statblock5e : A Web Component statblock for D&amp;D 5E " name="description"/>
 
     <link href="stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="stylesheets/prism.css" rel="stylesheet"/>
 
     <title>Statblock5e</title>
   </head>
@@ -44,7 +45,7 @@ providing all the necessary support but it's all behind flags.)</p><div align="c
 self-contained</strong>.</p><p>There's very little JavaScript actually; just a bit of boilerplate that
 registers the elements and some minor logic for computing the ability modifiers
 for the ability table. Other than that, it's pure HTML, CSS &amp; SVG.</p><p>Here's the markup that produced the above picture. <strong>No user-level CSS or
-JavaScript is necessary.</strong></p><pre><code class="language-html">&lt;stat-block&gt;
+JavaScript is necessary.</strong></p><pre><code class="language-markup">&lt;stat-block&gt;
   &lt;creature-heading&gt;
     &lt;h1&gt;Animated Armor&lt;/h1&gt;
     &lt;h2&gt;Medium construct, unaligned&lt;/h2&gt;
@@ -151,8 +152,9 @@ had nothing better to do and it was fun! :)</p><h2>License</h2><p>This software 
       </footer>
     </div>
 
-    
+    <script src="javascripts/prism.js"></script>
 
-  
+
+
 
 </body></html>
