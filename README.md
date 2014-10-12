@@ -115,9 +115,9 @@ Why aren't you using polyfills?
 
 While polyfills for Web Components [do exist][platform], they're not perfect and
 require a preprocessing stage that inlines all HTML imports and rewrites the new
-CSS selectors like `:host` and `::content`. There's no easy way to tie all this
-together and frankly, I don't care enough since I'll personally only use this
-for locally hosted pages rendered in Chrome.
+CSS selectors like `:host`, `::content`, `/deep/` etc. There's no easy way to
+tie all this together and frankly, I don't care enough since I'll personally
+only use this for locally hosted pages rendered in Chrome.
 
 If someone wants to do the required work to implement the whole preprocessing
 pipeline, pull requests are welcome.
