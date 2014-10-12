@@ -49,7 +49,9 @@
     if (abilityModifier >= 0) {
       return '+' + abilityModifier;
     }
-    return String(abilityModifier);
+    // This is an en dash, NOT a "normal" dash. The minus sign needs to be more
+    // visible.
+    return '–' + Math.abs(abilityModifier);
   }
 
   function abilityText(abilityScore) {
