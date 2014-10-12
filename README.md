@@ -21,7 +21,7 @@ self-contained**.
 
 There's very little JavaScript actually; just a bit of boilerplate that
 registers the elements and some minor logic for computing the ability modifiers
-for the ability table. Other than that, it's pure HTML & CSS.
+for the ability table. Other than that, it's pure HTML, CSS & SVG.
 
 Here's the markup that produced the above picture. **No user-level CSS or
 JavaScript is necessary.**
