@@ -18,7 +18,9 @@ the above specs, statblock5e only works in Chrome. (Firefox is close to providin
 all the necessary support but it's all behind flags.)
 
 <div align="center">
-  <a href="http://valloric.github.io/statblock5e/demo.html"><b>LIVE DEMO.</b></a>
+  <p><a href="http://valloric.github.io/statblock5e/demo.html">
+     <b>LIVE DEMO.</b></a>
+  </p>
 </div>
 
 **There are _no_ dependencies** (JavaScript or otherwise), **this is entirely
