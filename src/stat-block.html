@@ -16,6 +16,10 @@
       border: 1px #DDD solid;
       box-shadow: 0 0 1.5em #867453;
 
+      /* We don't want the box-shadow in front of the bar divs. */
+      position: relative;
+      z-index: 0;
+
       /* Leaving room for the two bars to protrude outwards */
       margin-left: 2px;
       margin-right: 2px;
@@ -31,8 +35,10 @@
 
     .bar {
       height: 5px;
-      background: #FFAA2B;
+      background: #E69A28;
       border: 1px solid #000;
+      position: relative;
+      z-index: 1;
     }
   </style>
   <div class="bar"></div>
