@@ -110,6 +110,18 @@ The example text is copyright Wizards of the Coast; they make it [available for
 free on their website][wotc-basic] through the D&D 5E Basic Rules (it's in the
 [DM supplement][dm-basic]).
 
+Why aren't you using polyfills?
+------------------------------
+
+While polyfills for Web Components [do exist][platform], they're not perfect and
+require a preprocessing stage that inlines all HTML imports and rewrites the new
+CSS selectors like `:host` and `::content`. There's no easy way to tie all this
+together and frankly, I don't care enough since I'll personally only use this
+for locally hosted pages rendered in Chrome.
+
+If someone wants to do the required work to implement the whole preprocessing
+pipeline, pull requests are welcome.
+
 License
 -------
 
@@ -124,3 +136,4 @@ This software is licensed under the [Apache License, Version 2.0][apache2].
 [wotc-basic]: http://dnd.wizards.com/articles/features/basicrules?x=dnd/basicrules
 [dm-basic]: http://media.wizards.com/2014/downloads/dnd/DMDnDBasicRules_v0.1.pdf
 [apache2]: http://www.apache.org/licenses/LICENSE-2.0.html
+[platform]: https://www.polymer-project.org/docs/start/platform.html
