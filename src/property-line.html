@@ -18,7 +18,9 @@
       margin-left: 5px;
     }
   </style>
-  <div><content></content></div>
+  <!-- Specific select expressions needed instead of just one <content>
+  to avoid the original witespace between the elements.  -->
+  <div><content select="h4"></content><content select="p"></content></div>
 </template>
 
 <script>
