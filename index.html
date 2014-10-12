@@ -6,8 +6,10 @@
     <!-- Web Components Polyfill -->
     <script src="bower_components/platform/platform.js"></script>
 
+    <link rel="import" href="src/traits-block.html">
     <link rel="import" href="src/creature-heading.html">
     <link rel="import" href="src/abilities-block.html">
+    <link rel="import" href="src/property-block.html">
     <link rel="import" href="src/property-line.html">
     <link rel="import" href="src/stat-block.html">
 </head>
@@ -58,6 +60,21 @@
       <h4>Challenge</h4>
       <p>1 (200 XP)</p>
     </property-line>
+
+    <traits-block>
+      <property-block>
+        <h4>Antimagic Susceptibility.</h4>
+        <p>The armor is incapacitated while in the area of an <i>antimagic
+            field</i>.  If targeted by <i>dispel magic</i>, the armor must
+          succeed on a Constitution saving throw against the caster’s spell save
+          DC or fall unconscious for 1 minute.</p>
+      </property-block>
+      <property-block>
+        <h4>False Appearance.</h4>
+        <p>While the armor remains motionless, it is indistinguishable from a
+          normal suit of armor.</p>
+      </property-block>
+    </traits-block>
   </stat-block>
 </body>
 </html>

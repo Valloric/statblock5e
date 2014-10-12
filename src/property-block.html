@@ -1,18 +1,26 @@
-<template id="stat-block">
+<template id="property-block">
   <style>
-    :host {
-      font-family: Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      display: block;
-      width: 400px;
+    ::content > h4 {
+      display: inline;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    ::content > p {
+      display: inline;
+    }
+
+    p {
+      margin-top: 0.4em;
+      margin-bottom: 1.2em;
     }
   </style>
-  <content></content>
+  <p><content></content></p>
 </template>
 
 <script>
 (function(window, document) {
-  var elemName = 'stat-block';
+  var elemName = 'property-block';
   var thatDoc = document;
   var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
   var proto = Object.create(HTMLElement.prototype, {
@@ -27,3 +35,5 @@
   thatDoc.registerElement(elemName, {prototype: proto});
 })(window, document);
 </script>
+
+
