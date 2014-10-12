@@ -9,7 +9,7 @@ almost exactly like the statblocks from the 5th edition D&D Monster Manual.
 </div>
 
 This is implemented as a set of custom elements following the [Web
-Components][web-components] specs: [HTML imports][html-import], [Custom
+Components][web-components] specs: [HTML Imports][html-import], [Custom
 Elements][custom-elements], [Shadow DOM][shadow-dom] and the HTML5 [template][]
 element.
 
