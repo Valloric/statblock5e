@@ -15,10 +15,12 @@
     }
 
     ::content > p {
-      margin-left: 5px;
+      margin-left: 0.4em;
     }
   </style>
-  <div><content></content></div>
+  <!-- Specific select expressions needed instead of just one <content>
+  to avoid the original witespace between the elements.  -->
+  <div><content select="h4"></content><content select="p"></content></div>
 </template>
 
 <script>
