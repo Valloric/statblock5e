@@ -3,10 +3,22 @@
 <template id="stat-block">
   <style>
     :host {
+      width: 424px;
+      display: block;
+    }
+
+    #content-wrap {
       font-family: 'Noto Sans', sans-serif;
       font-size: 13px;
       display: block;
-      width: 400px;
+      background: #FDF1DC;
+      padding: 0.6em;
+      border: 1px #DDD solid;
+      box-shadow: 0 0 1.5em #867453;
+
+      /* Leaving room for the two bars to protrude outwards */
+      margin-left: 2px;
+      margin-right: 2px;
     }
 
     ::content > h3 {
@@ -16,8 +28,18 @@
       font-size: 18px;
       border-bottom: 1px solid #7A200D;
     }
+
+    .bar {
+      height: 5px;
+      background: #FFAA2B;
+      border: 1px solid #000;
+    }
   </style>
-  <content></content>
+  <div class="bar"></div>
+  <div id="content-wrap">
+    <content></content>
+  </div>
+  <div class="bar"></div>
 </template>
 
 <script>
