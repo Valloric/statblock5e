@@ -1,8 +1,8 @@
 A Web Component statblock for D&D 5E
 ====================================
 
-Statblock5e provides an easy way to display a statblock that looks almost
-exactly like the statblocks from the 5th edition D&D Monster Manual.
+Statblock5e provides an easy way to display a creature statblock that looks
+almost exactly like the statblocks from the 5th edition D&D Monster Manual.
 
 <div align="center">
   <img src="http://i.imgur.com/qxI9G6n.png" />
