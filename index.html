@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html><head>
+    <meta charset="utf-8"/>
+    <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
+    <meta content="Statblock5e : A Web Component statblock for D&amp;D 5E " name="description"/>
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Statblock5e : A Web Component statblock for D&amp;D 5E ">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link href="stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css"/>
 
     <title>Statblock5e</title>
   </head>
@@ -14,9 +12,9 @@
   <body>
 
     <!-- HEADER -->
-    <div id="header_wrap" class="outer">
+    <div class="outer" id="header_wrap">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/Valloric/statblock5e">View on GitHub</a>
+          <a href="https://github.com/Valloric/statblock5e" id="forkme_banner">View on GitHub</a>
 
           <h1 id="project_title">Statblock5e</h1>
           <h2 id="project_tagline">A Web Component statblock for D&amp;D 5E </h2>
@@ -29,44 +27,120 @@
     </div>
 
     <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+    <div class="outer" id="main_content_wrap">
+      <section class="inner" id="main_content"><h1>A Web Component statblock for D&amp;D 5E</h1><p>Statblock5e provides an easy way to display a creature statblock that looks
+almost exactly like the statblocks from the 5th edition D&amp;D Monster Manual.</p><div align="center">
+  <img src="http://i.imgur.com/qxI9G6n.png"/>
+</div><p>This is implemented as a set of custom elements following the <a href="http://webcomponents.org/">Web
+Components</a> specs: <a href="http://w3c.github.io/webcomponents/spec/imports/">HTML Imports</a>, <a href="http://w3c.github.io/webcomponents/spec/custom/">Custom
+Elements</a>, <a href="http://w3c.github.io/webcomponents/spec/shadow/">Shadow DOM</a> and the HTML5 <a href="https://html.spec.whatwg.org/multipage/scripting.html#the-template-element">template</a>
+element.</p><p>Since Chrome is <a href="http://jonrimmer.github.io/are-we-componentized-yet/">currently the only browser</a> that implements all of
+the above specs, statblock5e only works in Chrome. (Firefox is close to providing
+all the necessary support but it's all behind flags.)</p><p><strong>There are <em>no</em> dependencies</strong> (JavaScript or otherwise), <strong>this is entirely
+self-contained</strong>.</p><p>There's very little JavaScript actually; just a bit of boilerplate that
+registers the elements and some minor logic for computing the ability modifiers
+for the ability table. Other than that, it's pure HTML, CSS &amp; SVG.</p><p>Here's the markup that produced the above picture. <strong>No user-level CSS or
+JavaScript is necessary.</strong></p><pre><code class="html">&lt;stat-block&gt;
+  &lt;creature-heading&gt;
+    &lt;h1&gt;Animated Armor&lt;/h1&gt;
+    &lt;h2&gt;Medium construct, unaligned&lt;/h2&gt;
+  &lt;/creature-heading&gt;
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+  &lt;top-stats&gt;
+    &lt;property-line&gt;
+      &lt;h4&gt;Armor Class&lt;/h4&gt;
+      &lt;p&gt;18 (natural armor)&lt;/p&gt;
+    &lt;/property-line&gt;
+    &lt;property-line&gt;
+      &lt;h4&gt;Hit Points&lt;/h4&gt;
+      &lt;p&gt;33 (6d8 + 6)&lt;/p&gt;
+    &lt;/property-line&gt;
+    &lt;property-line&gt;
+      &lt;h4&gt;Speed&lt;/h4&gt;
+      &lt;p&gt;25ft&lt;/p&gt;
+    &lt;/property-line&gt;
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+    &lt;abilities-block data-str="14"
+                     data-dex="11"
+                     data-con="13"
+                     data-int="1"
+                     data-wis="3"
+                     data-cha="1"&gt;&lt;/abilities-block&gt;
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+    &lt;property-line&gt;
+      &lt;h4&gt;Damage Immunities&lt;/h4&gt;
+      &lt;p&gt;poison, psychic&lt;/p&gt;
+    &lt;/property-line&gt;
+    &lt;property-line&gt;
+      &lt;h4&gt;Condition Immunities&lt;/h4&gt;
+      &lt;p&gt;blinded, charmed, deafened, exhaustion, frightened, paralyzed,
+        petrified, poisoned&lt;/p&gt;
+    &lt;/property-line&gt;
+    &lt;property-line&gt;
+      &lt;h4&gt;Senses&lt;/h4&gt;
+      &lt;p&gt;blindsight 60 ft. (blind beyond this radius), passive Perception 6&lt;/p&gt;
+    &lt;/property-line&gt;
+    &lt;property-line&gt;
+      &lt;h4&gt;Languages&lt;/h4&gt;
+      &lt;p&gt;—&lt;/p&gt;
+    &lt;/property-line&gt;
+    &lt;property-line&gt;
+      &lt;h4&gt;Challenge&lt;/h4&gt;
+      &lt;p&gt;1 (200 XP)&lt;/p&gt;
+    &lt;/property-line&gt;
+  &lt;/top-stats&gt;
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+  &lt;property-block&gt;
+    &lt;h4&gt;Antimagic Susceptibility.&lt;/h4&gt;
+    &lt;p&gt;The armor is incapacitated while in the area of an &lt;i&gt;antimagic
+      field&lt;/i&gt;.  If targeted by &lt;i&gt;dispel magic&lt;/i&gt;, the armor must succeed
+      on a Constitution saving throw against the caster’s spell save DC or
+      fall unconscious for 1 minute.&lt;/p&gt;
+  &lt;/property-block&gt;
+  &lt;property-block&gt;
+    &lt;h4&gt;False Appearance.&lt;/h4&gt;
+    &lt;p&gt;While the armor remains motionless, it is indistinguishable from a
+      normal suit of armor.&lt;/p&gt;
+  &lt;/property-block&gt;
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+  &lt;h3&gt;Actions&lt;/h3&gt;
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+  &lt;property-block&gt;
+    &lt;h4&gt;Multiattack.&lt;/h4&gt;
+    &lt;p&gt;The armor makes two melee attacks.&lt;/p&gt;
+  &lt;/property-block&gt;
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+  &lt;property-block&gt;
+    &lt;h4&gt;Slam.&lt;/h4&gt;
+    &lt;p&gt;&lt;i&gt;Melee Weapon Attack:&lt;/i&gt; +4 to hit, reach 5 ft., one target.
+      &lt;i&gt;Hit:&lt;/i&gt; 5 (1d6 + 2) bludgeoning damage.&lt;/p&gt;
+  &lt;/property-block&gt;
+&lt;/stat-block&gt;
+</code></pre><p>The example text is copyright Wizards of the Coast; they make it <a href="http://dnd.wizards.com/articles/features/basicrules?x=dnd/basicrules">available for
+free on their website</a> through the D&amp;D 5E Basic Rules (it's in the
+<a href="http://media.wizards.com/2014/downloads/dnd/DMDnDBasicRules_v0.1.pdf">DM supplement</a>).</p><h2>Why aren't you using polyfills?</h2><p>While polyfills for Web Components <a href="https://www.polymer-project.org/docs/start/platform.html">do exist</a>, they're not perfect and
+require a preprocessing stage that inlines all HTML imports and rewrites the new
+CSS selectors like <code>:host</code>, <code>::content</code>, <code>/deep/</code> etc. There's no easy way to
+tie all this together and frankly, I don't care enough since I'll personally
+only use this for locally hosted pages rendered in Chrome.</p><p>If someone wants to do the required work to implement the whole preprocessing
+pipeline, pull requests are welcome.</p><h2>Visual differences from the MM statblocks</h2><p>Unfortunately this statblock isn't <em>quite</em> pixel-perfect with regards to the
+statblocks in the MM. The differences are:</p><ul>
+<li><strong>Different typefaces used.</strong> I don't know what typeface is used in the MM,
+  and even if I did, I doubt it's available for free from Google Fonts.</li>
+<li><strong>No textured background.</strong> Obviously, I don't have access to the original
+  textures WotC used. Even if I did, I'm not sure I'd use them since that would
+  mean serving images which I wanted to avoid (scaling/resolution/deployment
+  issues etc).</li>
+<li><strong>No textured block border.</strong> Same as above.</li>
+</ul><p>There are probably other differences as well but I haven't noticed them. I tried
+to stick as close to the original as reasonably possible; for instance, I spent
+<em>waaay</em> too much time getting the drop-shadow to be the "correct" shade of
+brown and the tapered horizontal rule to render <em>just</em> right. <em>Why?</em> Because I
+had nothing better to do and it was fun! :)</p><h2>License</h2><p>This software is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License, Version 2.0</a>.</p></section>
     </div>
 
     <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
+    <div class="outer" id="footer_wrap">
       <footer class="inner">
         <p class="copyright">Statblock5e maintained by <a href="https://github.com/Valloric">Valloric</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
@@ -75,5 +149,6 @@ $ git checkout gh-pages
 
     
 
-  </body>
-</html>
+  
+
+</body></html>

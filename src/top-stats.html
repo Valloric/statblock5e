@@ -1,0 +1,26 @@
+<link rel="import" href="tapered-rule.html">
+
+<template id="top-stats">
+  <tapered-rule></tapered-rule>
+  <content></content>
+  <tapered-rule></tapered-rule>
+</template>
+
+<script>
+(function(window, document) {
+  var elemName = 'top-stats';
+  var thatDoc = document;
+  var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
+  var proto = Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        var template = thisDoc.getElementById(elemName);
+        var clone = thatDoc.importNode(template.content, true);
+        this.createShadowRoot().appendChild(clone);
+      }
+    }
+  });
+  thatDoc.registerElement(elemName, {prototype: proto});
+})(window, document);
+</script>
+

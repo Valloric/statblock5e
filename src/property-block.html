@@ -1,0 +1,39 @@
+<template id="property-block">
+  <style>
+    ::content > h4 {
+      display: inline;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    ::content > p {
+      display: inline;
+    }
+
+    p {
+      margin-top: 0.3em;
+      margin-bottom: 0.9em;
+    }
+  </style>
+  <p><content></content></p>
+</template>
+
+<script>
+(function(window, document) {
+  var elemName = 'property-block';
+  var thatDoc = document;
+  var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
+  var proto = Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        var template = thisDoc.getElementById(elemName);
+        var clone = thatDoc.importNode(template.content, true);
+        this.createShadowRoot().appendChild(clone);
+      }
+    }
+  });
+  thatDoc.registerElement(elemName, {prototype: proto});
+})(window, document);
+</script>
+
+
