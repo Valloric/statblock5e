@@ -17,7 +17,7 @@ Since Chrome is [currently the only browser][wc-status] that implements all of
 the above specs, statblock5e only works in Chrome. (Firefox is close to providing
 all the necessary support but it's all behind flags.)
 
-[**LIVE DEMO.**][]
+[**LIVE DEMO.**][demo]
 
 **There are _no_ dependencies** (JavaScript or otherwise), **this is entirely
 self-contained**.
