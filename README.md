@@ -19,7 +19,7 @@ all the necessary support but it's all behind flags.)
 
 <div align="center">
   <p><a href="http://valloric.github.io/statblock5e/demo.html">
-     <b>LIVE DEMO.</b></a>
+     <b>LIVE DEMO</b></a>
   </p>
 </div>
 
