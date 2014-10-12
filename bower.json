@@ -16,7 +16,6 @@
         "bower_components"
     ],
     "dependencies": {
-        "platform": "Polymer/platform",
         "normalize": "necolas/normalize.css#~3.0.2"
     }
 }
