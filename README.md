@@ -122,6 +122,24 @@ only use this for locally hosted pages rendered in Chrome.
 If someone wants to do the required work to implement the whole preprocessing
 pipeline, pull requests are welcome.
 
+Visual differences from the MM statblocks
+-----------------------------------------
+
+Unfortunately this statblock isn't _quite_ pixel-perfect with regards to the
+statblocks in the MM. The differences are:
+- **Different typefaces used.** I don't know what typeface is used in the MM,
+  and even if I did, I doubt it's available for free from Google Fonts.
+- **No textured background.** Obviously, I don't have access to the original
+  textures WotC used. Even if I did, I'm not sure I'd use them since that would
+  mean serving images which I wanted to avoid (scaling/resolution/deployment
+  issues etc).
+- **No textured block border.** Same as above.
+
+There are probably other differences as well but I haven't noticed them. I tried
+to stick as close to the original as reasonably possible; for instance, I spent
+_waaay_ too much time getting the drop-shadow to be the "correct" shade of
+brown and the tapered horizontal rule to render _just_ right.
+
 License
 -------
 
