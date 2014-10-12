@@ -33,6 +33,11 @@
       border-bottom: 1px solid #7A200D;
     }
 
+    /* Last block shouldn't have margin, too much white space. */
+    ::content property-block:last-child /deep/ p {
+      margin-bottom: 0;
+    }
+
     .bar {
       height: 5px;
       background: #E69A28;
