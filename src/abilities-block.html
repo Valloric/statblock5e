@@ -46,7 +46,7 @@
   }
 
   function formattedModifier(abilityModifier) {
-    if (abilityModifier > 0) {
+    if (abilityModifier >= 0) {
       return '+' + abilityModifier;
     }
     return String(abilityModifier);
