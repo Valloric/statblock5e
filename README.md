@@ -138,7 +138,8 @@ statblocks in the MM. The differences are:
 There are probably other differences as well but I haven't noticed them. I tried
 to stick as close to the original as reasonably possible; for instance, I spent
 _waaay_ too much time getting the drop-shadow to be the "correct" shade of
-brown and the tapered horizontal rule to render _just_ right.
+brown and the tapered horizontal rule to render _just_ right. _Why?_ Because I
+had nothing better to do and it was fun! :)
 
 License
 -------
