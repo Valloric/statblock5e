@@ -127,6 +127,7 @@ Visual differences from the MM statblocks
 
 Unfortunately this statblock isn't _quite_ pixel-perfect with regards to the
 statblocks in the MM. The differences are:
+
 - **Different typefaces used.** I don't know what typeface is used in the MM,
   and even if I did, I doubt it's available for free from Google Fonts.
 - **No textured background.** Obviously, I don't have access to the original
