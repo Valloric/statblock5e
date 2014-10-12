@@ -23,7 +23,8 @@ There's very little JavaScript actually; just a bit of boilerplate that
 registers the elements and some minor logic for computing the ability modifiers
 for the ability table. Other than that, it's pure HTML & CSS.
 
-An example of the markup that produced the above picture:
+Here's the markup that produced the above picture. **No user-level CSS or
+JavaScript is necessary.**
 
 ```html
 <stat-block>
