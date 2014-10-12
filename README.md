@@ -9,14 +9,14 @@ exactly like the statblocks from the 5th edition D&D Monster Manual.
 </div>
 
 This is implemented as a set of custom elements following the [Web
-Components][web-components] specs: [HTML imports][html-imports], [Custom
+Components][web-components] specs: [HTML imports][html-import], [Custom
 Elements][custom-elements], [Shadow DOM][shadow-dom] and the HTML5 [template][]
 element.
 
 Since Chrome is currently [the only browser][wc-status] that implements all of
 the above specs, statblock5e only works in Chrome.
 
-There are _no_ dependencies (JavaScript or otherwise), **this is entirely
+**There are _no_ dependencies** (JavaScript or otherwise), **this is entirely
 self-contained**.
 
 There's very little JavaScript actually; just a bit of boilerplate that
