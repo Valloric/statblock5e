@@ -5,7 +5,7 @@ Statblock5e provides an easy way to display a creature statblock that looks
 almost exactly like the statblocks from the 5th edition D&D Monster Manual.
 
 <div align="center">
-  <img src="http://i.imgur.com/qxI9G6n.png" />
+  <img src="http://i.imgur.com/K2fcFz0.png" />
 </div>
 
 This is implemented as a set of custom elements following the [Web
