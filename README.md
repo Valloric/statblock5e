@@ -104,9 +104,9 @@ An example of the markup that produced the above picture:
 </stat-block>
 ```
 
-The example text is copyright Wizards of the Coast; they make it available for
-free on their website through the D&D 5E Basic Rules (it's in the [DM
-supplement][dm-basic]).
+The example text is copyright Wizards of the Coast; they make it [available for
+free on their website][wotc-basic] through the D&D 5E Basic Rules (it's in the
+[DM supplement][dm-basic]).
 
 License
 -------
