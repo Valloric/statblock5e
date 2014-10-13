@@ -123,12 +123,7 @@ JavaScript is necessary.</strong></p><pre><code class="language-markup">&lt;stat
 &lt;/stat-block&gt;
 </code></pre><p>The example text is copyright Wizards of the Coast; they make it <a href="http://dnd.wizards.com/articles/features/basicrules?x=dnd/basicrules">available for
 free on their website</a> through the D&amp;D 5E Basic Rules (it's in the
-<a href="http://media.wizards.com/2014/downloads/dnd/DMDnDBasicRules_v0.1.pdf">DM supplement</a>).</p><h2>Why aren't you using polyfills?</h2><p>While polyfills for Web Components <a href="https://www.polymer-project.org/docs/start/platform.html">do exist</a>, they're not perfect and
-require a preprocessing stage that inlines all HTML imports and rewrites the new
-CSS selectors like <code>:host</code>, <code>::content</code>, <code>/deep/</code> etc. There's no easy way to
-tie all this together and frankly, I don't care enough since I'll personally
-only use this for locally hosted pages rendered in Chrome.</p><p>If someone wants to do the required work to implement the whole preprocessing
-pipeline, pull requests are welcome.</p><h2>Visual differences from the MM statblocks</h2><p>Unfortunately this statblock isn't <em>quite</em> pixel-perfect with regards to the
+<a href="http://media.wizards.com/2014/downloads/dnd/DMDnDBasicRules_v0.1.pdf">DM supplement</a>).</p><h2>Visual differences from the MM statblocks</h2><p>Unfortunately this statblock isn't <em>quite</em> pixel-perfect with regards to the
 statblocks in the MM. The differences are:</p><ul>
 <li><strong>Different typefaces used.</strong> I don't know what typeface is used in the MM,
   and even if I did, I doubt it's available for free from Google Fonts.</li>
@@ -141,7 +136,16 @@ statblocks in the MM. The differences are:</p><ul>
 to stick as close to the original as reasonably possible; for instance, I spent
 <em>waaay</em> too much time getting the drop-shadow to be the "correct" shade of
 brown and the tapered horizontal rule to render <em>just</em> right. <em>Why?</em> Because I
-had nothing better to do and it was fun! :)</p><h2>License</h2><p>This software is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License, Version 2.0</a>.</p></section>
+had nothing better to do and it was fun! :)</p><h2>FAQ</h2><h3>Is there a single-file version?</h3><p>The <a href="http://valloric.github.io/statblock5e/demo.html"><code>demo.html</code></a> file in the repository HTML-imports the other HTML
+source files. There's also <a href="http://valloric.github.io/statblock5e/demo-inlined.html"><code>demo-inlined.html</code></a> which renders
+exactly the same but has all the HTML-imports inlined directly into the
+document.</p><p>The Python script that produces the inlined version <a href="https://github.com/Valloric/statblock5e/blob/master/tools/inline-imports.py">is also
+available</a>.</p><h3>Why aren't you using polyfills?</h3><p>While polyfills for Web Components <a href="https://www.polymer-project.org/docs/start/platform.html">do exist</a>, they're not perfect and
+require a preprocessing stage that inlines all HTML imports and rewrites the new
+CSS selectors like <code>:host</code>, <code>::content</code>, <code>/deep/</code> etc. There's no easy way to
+tie all this together and frankly, I don't care enough since I'll personally
+only use this for locally hosted pages rendered in Chrome.</p><p>If someone wants to do the required work to implement the whole preprocessing
+pipeline, pull requests are welcome.</p><h2>License</h2><p>This software is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License, Version 2.0</a>.</p></section>
     </div>
 
     <!-- FOOTER  -->
