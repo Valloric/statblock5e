@@ -147,6 +147,9 @@ source files. There's also [`demo-inlined.html`][demo-inline] which renders
 exactly the same but has all the HTML-imports inlined directly into the
 document.
 
+The Python script that produces the inlined version [is also
+available][inline-script].
+
 ### Why aren't you using polyfills?
 
 While polyfills for Web Components [do exist][platform], they're not perfect and
@@ -175,3 +178,4 @@ This software is licensed under the [Apache License, Version 2.0][apache2].
 [platform]: https://www.polymer-project.org/docs/start/platform.html
 [demo]: http://valloric.github.io/statblock5e/demo.html
 [demo-inline]: http://valloric.github.io/statblock5e/demo-inlined.html
+[inline-script]: https://github.com/Valloric/statblock5e/blob/master/tools/inline-imports.py
