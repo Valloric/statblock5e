@@ -62,7 +62,9 @@
 </script><template id="creature-heading">
   <style>
     ::content > h1 {
-      font-family: 'Lora', serif;
+      font-family: 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman,
+                    'Goudy Old Style', Garamond, 'Hoefler Text',
+                    'Bitstream Charter', Georgia, serif;
       color: #7A200D;
       font-weight: 700;
       margin-top: -6px;
@@ -228,16 +230,16 @@
       margin-left: 1em;
     }
 
-    ::content > h4 {
-      font-weight: bold;
+    ::content > * {
       display: inline;
     }
 
     ::content > p {
-      display: inline;
-      margin-left: 5px;
+      margin-left: 0.4em;
     }
   </style>
+  <!-- Specific select expressions needed instead of just one <content>
+  to avoid the original witespace between the elements.  -->
   <div><content select="h4"></content><content select="p"></content></div>
 </template><script>
 (function(window, document) {
@@ -263,7 +265,8 @@
     }
 
     #content-wrap {
-      font-family: 'Noto Sans', sans-serif;
+      font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial,
+                    sans-serif;
       font-size: 13px;
       display: block;
       background: #FDF1DC;
