@@ -116,18 +116,6 @@ The example text is copyright Wizards of the Coast; they make it [available for
 free on their website][wotc-basic] through the D&D 5E Basic Rules (it's in the
 [DM supplement][dm-basic]).
 
-Why aren't you using polyfills?
-------------------------------
-
-While polyfills for Web Components [do exist][platform], they're not perfect and
-require a preprocessing stage that inlines all HTML imports and rewrites the new
-CSS selectors like `:host`, `::content`, `/deep/` etc. There's no easy way to
-tie all this together and frankly, I don't care enough since I'll personally
-only use this for locally hosted pages rendered in Chrome.
-
-If someone wants to do the required work to implement the whole preprocessing
-pipeline, pull requests are welcome.
-
 Visual differences from the MM statblocks
 -----------------------------------------
 
@@ -148,6 +136,28 @@ _waaay_ too much time getting the drop-shadow to be the "correct" shade of
 brown and the tapered horizontal rule to render _just_ right. _Why?_ Because I
 had nothing better to do and it was fun! :)
 
+
+FAQ
+---
+
+### Is there a single-file version?
+
+The [`demo.html`][demo] file in the repository HTML-imports the other HTML
+source files. There's also [`demo-inlined.html`][demo-inline] which renders
+exactly the same but has all the HTML-imports inlined directly into the
+document.
+
+### Why aren't you using polyfills?
+
+While polyfills for Web Components [do exist][platform], they're not perfect and
+require a preprocessing stage that inlines all HTML imports and rewrites the new
+CSS selectors like `:host`, `::content`, `/deep/` etc. There's no easy way to
+tie all this together and frankly, I don't care enough since I'll personally
+only use this for locally hosted pages rendered in Chrome.
+
+If someone wants to do the required work to implement the whole preprocessing
+pipeline, pull requests are welcome.
+
 License
 -------
 
@@ -164,3 +174,4 @@ This software is licensed under the [Apache License, Version 2.0][apache2].
 [apache2]: http://www.apache.org/licenses/LICENSE-2.0.html
 [platform]: https://www.polymer-project.org/docs/start/platform.html
 [demo]: http://valloric.github.io/statblock5e/demo.html
+[demo-inline]: http://valloric.github.io/statblock5e/demo-inlined.html
