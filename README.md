@@ -122,8 +122,10 @@ Visual differences from the MM statblocks
 Unfortunately this statblock isn't _quite_ pixel-perfect with regards to the
 statblocks in the MM. The differences are:
 
-- **Different typefaces used.** I don't know what typeface is used in the MM,
-  and even if I did, I doubt it's available for free from Google Fonts.
+- **Different typefaces used.** I'm told that the body typeface used in the MM
+  is _FF Scala Sans_ and the one used for the monster name headings is
+  _Mrs Eaves Petite Caps_. They're not available for free from Google Fonts, so
+  substitutes are used instead.
 - **No textured background.** Obviously, I don't have access to the original
   textures WotC used. Even if I did, I'm not sure I'd use them since that would
   mean serving images which I wanted to avoid (scaling/resolution/deployment
