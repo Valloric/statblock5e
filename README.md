@@ -152,6 +152,12 @@ document.
 The Python script that produces the inlined version [is also
 available][inline-script].
 
+### How do I make two-column layouts?
+
+See the [`demo-two-column.html`][demo2c] file. The key thing to notice is the
+use of the `<content-column>` tags to mark up the content of a particular
+column. Their use is what makes a two-column layout possible.
+
 ### Why aren't you using polyfills?
 
 While polyfills for Web Components [do exist][platform], they're not perfect and
@@ -162,6 +168,23 @@ only use this for locally hosted pages rendered in Chrome.
 
 If someone wants to do the required work to implement the whole preprocessing
 pipeline, pull requests are welcome.
+
+Version History
+---------------
+
+### 0.0.2
+- `<property-line>` can now be used for legendary actions since it doesn't
+  hardcode red text.
+- Support for two-column layout! See the new item in the FAQ.
+- Now supporting multiple `<p>` elements inside `<property-block>`. All `<p>`'s
+  after the first will have an indent like in the MM.
+- Increasing h3 size to be closer to MM.
+- Increasing line height of body font to be closer to MM.
+- Using a new typeface for monster name heading. Should be closer to MM.
+- Slightly increased body font size to be closer to MM font metrics.
+
+### 0.0.1
+- Initial release.
 
 License
 -------
@@ -179,5 +202,6 @@ This software is licensed under the [Apache License, Version 2.0][apache2].
 [apache2]: http://www.apache.org/licenses/LICENSE-2.0.html
 [platform]: https://www.polymer-project.org/docs/start/platform.html
 [demo]: http://valloric.github.io/statblock5e/demo.html
+[demo2c]: http://valloric.github.io/statblock5e/demo-two-column.html
 [demo-inline]: http://valloric.github.io/statblock5e/demo-inlined.html
 [inline-script]: https://github.com/Valloric/statblock5e/blob/master/tools/inline-imports.py
