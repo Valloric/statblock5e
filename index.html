@@ -31,7 +31,7 @@
     <div class="outer" id="main_content_wrap">
       <section class="inner" id="main_content"><h1>A Web Component statblock for D&amp;D 5E</h1><p>Statblock5e provides an easy way to display a creature statblock that looks
 almost exactly like the statblocks from the 5th edition D&amp;D Monster Manual.</p><div align="center">
-  <img src="http://i.imgur.com/K2fcFz0.png"/>
+  <img src="http://i.imgur.com/buhXuiR.png"/>
 </div><p>This is implemented as a set of custom elements following the <a href="http://webcomponents.org/">Web
 Components</a> specs: <a href="http://w3c.github.io/webcomponents/spec/imports/">HTML Imports</a>, <a href="http://w3c.github.io/webcomponents/spec/custom/">Custom
 Elements</a>, <a href="http://w3c.github.io/webcomponents/spec/shadow/">Shadow DOM</a> and the HTML5 <a href="https://html.spec.whatwg.org/multipage/scripting.html#the-template-element">template</a>
@@ -125,8 +125,10 @@ JavaScript is necessary.</strong></p><pre><code class="language-markup">&lt;stat
 free on their website</a> through the D&amp;D 5E Basic Rules (it's in the
 <a href="http://media.wizards.com/2014/downloads/dnd/DMDnDBasicRules_v0.1.pdf">DM supplement</a>).</p><h2>Visual differences from the MM statblocks</h2><p>Unfortunately this statblock isn't <em>quite</em> pixel-perfect with regards to the
 statblocks in the MM. The differences are:</p><ul>
-<li><strong>Different typefaces used.</strong> I don't know what typeface is used in the MM,
-  and even if I did, I doubt it's available for free from Google Fonts.</li>
+<li><strong>Different typefaces used.</strong> I'm told that the body typeface used in the MM
+  is <em>FF Scala Sans</em> and the one used for the monster name headings is
+  <em>Mrs Eaves Petite Caps</em>. They're not available for free from Google Fonts, so
+  substitutes are used instead.</li>
 <li><strong>No textured background.</strong> Obviously, I don't have access to the original
   textures WotC used. Even if I did, I'm not sure I'd use them since that would
   mean serving images which I wanted to avoid (scaling/resolution/deployment
@@ -140,12 +142,26 @@ had nothing better to do and it was fun! :)</p><h2>FAQ</h2><h3>Is there a single
 source files. There's also <a href="http://valloric.github.io/statblock5e/demo-inlined.html"><code>demo-inlined.html</code></a> which renders
 exactly the same but has all the HTML-imports inlined directly into the
 document.</p><p>The Python script that produces the inlined version <a href="https://github.com/Valloric/statblock5e/blob/master/tools/inline-imports.py">is also
-available</a>.</p><h3>Why aren't you using polyfills?</h3><p>While polyfills for Web Components <a href="https://www.polymer-project.org/docs/start/platform.html">do exist</a>, they're not perfect and
+available</a>.</p><h3>How do I make two-column layouts?</h3><p>See the <a href="http://valloric.github.io/statblock5e/demo-two-column.html"><code>demo-two-column.html</code></a> file. The key thing to notice is the
+use of the <code>&lt;content-column&gt;</code> tags to mark up the content of a particular
+column. Their use is what makes a two-column layout possible.</p><h3>Why aren't you using polyfills?</h3><p>While polyfills for Web Components <a href="https://www.polymer-project.org/docs/start/platform.html">do exist</a>, they're not perfect and
 require a preprocessing stage that inlines all HTML imports and rewrites the new
 CSS selectors like <code>:host</code>, <code>::content</code>, <code>/deep/</code> etc. There's no easy way to
 tie all this together and frankly, I don't care enough since I'll personally
 only use this for locally hosted pages rendered in Chrome.</p><p>If someone wants to do the required work to implement the whole preprocessing
-pipeline, pull requests are welcome.</p><h2>License</h2><p>This software is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License, Version 2.0</a>.</p></section>
+pipeline, pull requests are welcome.</p><h2>Version History</h2><h3>0.0.2</h3><ul>
+<li><code>&lt;property-line&gt;</code> can now be used for legendary actions since it doesn't
+  hardcode red text.</li>
+<li>Support for two-column layout! See the new item in the FAQ.</li>
+<li>Now supporting multiple <code>&lt;p&gt;</code> elements inside <code>&lt;property-block&gt;</code>. All <code>&lt;p&gt;</code>'s
+  after the first will have an indent like in the MM.</li>
+<li>Increasing h3 size to be closer to MM.</li>
+<li>Increasing line height of body font to be closer to MM.</li>
+<li>Using a new typeface for monster name heading. Should be closer to MM.</li>
+<li>Slightly increased body font size to be closer to MM font metrics.</li>
+</ul><h3>0.0.1</h3><ul>
+<li>Initial release.</li>
+</ul><h2>License</h2><p>This software is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License, Version 2.0</a>.</p></section>
     </div>
 
     <!-- FOOTER  -->

@@ -1,0 +1,59 @@
+<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic'
+      rel='stylesheet' type='text/css'>
+<template id="content-column">
+  <style>
+    :host {
+      display: block;
+      width: 400px;
+    }
+
+    ::content > h3 {
+      border-bottom: 1px solid #7A200D;
+      color: #7A200D;
+      font-size: 21px;
+      font-variant: small-caps;
+      font-weight: normal;
+      letter-spacing: 1px;
+      margin: 0;
+      margin-bottom: 0.3em;
+    }
+
+    /* For user-level p elems. */
+    ::content > p {
+      margin-top: 0.3em;
+      margin-bottom: 0.9em;
+      line-height: 1.5;
+    }
+
+    /* Last child shouldn't have bottom margin, too much white space. */
+    ::content > *:last-child {
+      margin-bottom: 0;
+    }
+
+    /* If anything but a <creature-heading> is the first child, then we are the
+    second column and thus the first item should have no top margin. */
+    ::content > :not(creature-heading):first-child {
+      margin-top: 0;
+    }
+  </style>
+  <content></content>
+</template>
+
+<script>
+(function(window, document) {
+  var elemName = 'content-column';
+  var thatDoc = document;
+  var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
+  var proto = Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        var template = thisDoc.getElementById(elemName);
+        var clone = thatDoc.importNode(template.content, true);
+        this.createShadowRoot().appendChild(clone);
+      }
+    }
+  });
+  thatDoc.registerElement(elemName, {prototype: proto});
+})(window, document);
+</script>
+

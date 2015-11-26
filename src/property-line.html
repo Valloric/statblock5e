@@ -1,26 +1,29 @@
 <template id="property-line">
   <style>
     :host {
-      color: #7A200D;
-    }
-
-    div {
-      /* Indenting everything EXCEPT the first line. */
+      line-height: 1.4;
+      display: block;
       text-indent: -1em;
-      margin-left: 1em;
+      padding-left: 1em;
     }
 
-    ::content > * {
+    ::content > h4 {
+      margin: 0;
       display: inline;
+      font-weight: bold;
+    }
+
+    ::content > p:first-of-type {
+      display: inline;
+      text-indent: 0;
     }
 
     ::content > p {
-      margin-left: 0.4em;
+      text-indent: 1em;
+      margin: 0;
     }
   </style>
-  <!-- Specific select expressions needed instead of just one <content>
-  to avoid the original witespace between the elements.  -->
-  <div><content select="h4"></content><content select="p"></content></div>
+  <content></content>
 </template>
 
 <script>

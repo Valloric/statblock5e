@@ -1,19 +1,23 @@
-<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic'
-      rel='stylesheet' type='text/css'>
+<link rel="import" href="content-column.html">
 <template id="stat-block">
   <style>
     :host {
-      width: 424px;
       display: block;
+    }
+
+    #outer-wrap {
+      display: inline-block;
     }
 
     #content-wrap {
       font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial,
                     sans-serif;
-      font-size: 13px;
-      display: block;
+      font-size: 13.5px;
+      display: flex;
+      justify-content: space-between;
       background: #FDF1DC;
       padding: 0.6em;
+      padding-bottom: 0.5em;
       border: 1px #DDD solid;
       box-shadow: 0 0 1.5em #867453;
 
@@ -26,19 +30,8 @@
       margin-right: 2px;
     }
 
-    ::content > h3 {
-      border-bottom: 1px solid #7A200D;
-      color: #7A200D;
-      font-size: 18px;
-      font-variant: small-caps;
-      font-weight: normal;
-      letter-spacing: 1px;
-      margin: 0;
-    }
-
-    /* Last block shouldn't have margin, too much white space. */
-    ::content property-block:last-child /deep/ p {
-      margin-bottom: 0;
+    ::content > content-column + content-column {
+      margin-left: 40px;
     }
 
     .bar {
@@ -49,11 +42,13 @@
       z-index: 1;
     }
   </style>
-  <div class="bar"></div>
-  <div id="content-wrap">
-    <content></content>
+  <div id="outer-wrap">
+    <div class="bar"></div>
+    <div id="content-wrap">
+      <content></content>
+    </div>
+    <div class="bar"></div>
   </div>
-  <div class="bar"></div>
 </template>
 
 <script>
@@ -65,6 +60,16 @@
     createdCallback: {
       value: function() {
         var template = thisDoc.getElementById(elemName);
+
+        // We support not wrapping the contents inside <stat-block> with
+        // <content-column> to simplify the most common use-case of only a
+        // single column. If the user doesn't do the wrapping, we do it for
+        // them.
+        if (this.firstElementChild.tagName !== 'CONTENT-COLUMN') {
+          var wrap = template.content.getElementById('content-wrap');
+          wrap.innerHTML = '<content-column>' + wrap.innerHTML +
+                           '</content-column>';
+        }
         var clone = thatDoc.importNode(template.content, true);
         this.createShadowRoot().appendChild(clone);
       }

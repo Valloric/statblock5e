@@ -5,7 +5,7 @@ Statblock5e provides an easy way to display a creature statblock that looks
 almost exactly like the statblocks from the 5th edition D&D Monster Manual.
 
 <div align="center">
-  <img src="http://i.imgur.com/K2fcFz0.png" />
+  <img src="http://i.imgur.com/buhXuiR.png" />
 </div>
 
 This is implemented as a set of custom elements following the [Web
@@ -122,8 +122,10 @@ Visual differences from the MM statblocks
 Unfortunately this statblock isn't _quite_ pixel-perfect with regards to the
 statblocks in the MM. The differences are:
 
-- **Different typefaces used.** I don't know what typeface is used in the MM,
-  and even if I did, I doubt it's available for free from Google Fonts.
+- **Different typefaces used.** I'm told that the body typeface used in the MM
+  is _FF Scala Sans_ and the one used for the monster name headings is
+  _Mrs Eaves Petite Caps_. They're not available for free from Google Fonts, so
+  substitutes are used instead.
 - **No textured background.** Obviously, I don't have access to the original
   textures WotC used. Even if I did, I'm not sure I'd use them since that would
   mean serving images which I wanted to avoid (scaling/resolution/deployment
@@ -150,6 +152,12 @@ document.
 The Python script that produces the inlined version [is also
 available][inline-script].
 
+### How do I make two-column layouts?
+
+See the [`demo-two-column.html`][demo2c] file. The key thing to notice is the
+use of the `<content-column>` tags to mark up the content of a particular
+column. Their use is what makes a two-column layout possible.
+
 ### Why aren't you using polyfills?
 
 While polyfills for Web Components [do exist][platform], they're not perfect and
@@ -160,6 +168,23 @@ only use this for locally hosted pages rendered in Chrome.
 
 If someone wants to do the required work to implement the whole preprocessing
 pipeline, pull requests are welcome.
+
+Version History
+---------------
+
+### 0.0.2
+- `<property-line>` can now be used for legendary actions since it doesn't
+  hardcode red text.
+- Support for two-column layout! See the new item in the FAQ.
+- Now supporting multiple `<p>` elements inside `<property-block>`. All `<p>`'s
+  after the first will have an indent like in the MM.
+- Increasing h3 size to be closer to MM.
+- Increasing line height of body font to be closer to MM.
+- Using a new typeface for monster name heading. Should be closer to MM.
+- Slightly increased body font size to be closer to MM font metrics.
+
+### 0.0.1
+- Initial release.
 
 License
 -------
@@ -177,5 +202,6 @@ This software is licensed under the [Apache License, Version 2.0][apache2].
 [apache2]: http://www.apache.org/licenses/LICENSE-2.0.html
 [platform]: https://www.polymer-project.org/docs/start/platform.html
 [demo]: http://valloric.github.io/statblock5e/demo.html
+[demo2c]: http://valloric.github.io/statblock5e/demo-two-column.html
 [demo-inline]: http://valloric.github.io/statblock5e/demo-inlined.html
 [inline-script]: https://github.com/Valloric/statblock5e/blob/master/tools/inline-imports.py
