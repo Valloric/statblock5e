@@ -154,9 +154,10 @@ available][inline-script].
 
 ### How do I make two-column layouts?
 
-See the [`demo-two-column.html`][demo2c] file. The key thing to notice is the
-use of the `<content-column>` tags to mark up the content of a particular
-column. Their use is what makes a two-column layout possible.
+See the [`demo-two-column.html`][demo2c] file ([here's a rendered
+image](http://i.imgur.com/ydFbEjw.png)). The key thing to notice is the use of
+the `<content-column>` tags to mark up the content of a particular column. Their
+use is what makes a two-column layout possible.
 
 ### Why aren't you using polyfills?
 
