@@ -5,7 +5,7 @@ Statblock5e provides an easy way to display a creature statblock that looks
 almost exactly like the statblocks from the 5th edition D&D Monster Manual.
 
 <div align="center">
-  <img src="http://i.imgur.com/buhXuiR.png" />
+  <img src="https://raw.githubusercontent.com/Valloric/statblock5e/gh-pages/images/statblock.png" />
 </div>
 
 This is implemented as a set of custom elements following the [Web
@@ -155,7 +155,7 @@ available][inline-script].
 ### How do I make two-column layouts?
 
 See the [`demo-two-column.html`][demo2c] file ([here's a rendered
-image](http://i.imgur.com/ydFbEjw.png)). The key thing to notice is the use of
+image][2c-img]). The key thing to notice is the use of
 the `<content-column>` tags to mark up the content of a particular column. Their
 use is what makes a two-column layout possible.
 
@@ -205,4 +205,5 @@ This software is licensed under the [Apache License, Version 2.0][apache2].
 [demo]: http://valloric.github.io/statblock5e/demo.html
 [demo2c]: http://valloric.github.io/statblock5e/demo-two-column.html
 [demo-inline]: http://valloric.github.io/statblock5e/demo-inlined.html
+[2c-img]: https://raw.githubusercontent.com/Valloric/statblock5e/gh-pages/images/statblock.png
 [inline-script]: https://github.com/Valloric/statblock5e/blob/master/tools/inline-imports.py
