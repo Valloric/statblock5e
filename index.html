@@ -142,9 +142,10 @@ had nothing better to do and it was fun! :)</p><h2>FAQ</h2><h3>Is there a single
 source files. There's also <a href="http://valloric.github.io/statblock5e/demo-inlined.html"><code>demo-inlined.html</code></a> which renders
 exactly the same but has all the HTML-imports inlined directly into the
 document.</p><p>The Python script that produces the inlined version <a href="https://github.com/Valloric/statblock5e/blob/master/tools/inline-imports.py">is also
-available</a>.</p><h3>How do I make two-column layouts?</h3><p>See the <a href="http://valloric.github.io/statblock5e/demo-two-column.html"><code>demo-two-column.html</code></a> file. The key thing to notice is the
-use of the <code>&lt;content-column&gt;</code> tags to mark up the content of a particular
-column. Their use is what makes a two-column layout possible.</p><h3>Why aren't you using polyfills?</h3><p>While polyfills for Web Components <a href="https://www.polymer-project.org/docs/start/platform.html">do exist</a>, they're not perfect and
+available</a>.</p><h3>How do I make two-column layouts?</h3><p>See the <a href="http://valloric.github.io/statblock5e/demo-two-column.html"><code>demo-two-column.html</code></a> file (<a href="http://i.imgur.com/ydFbEjw.png">here's a rendered
+image</a>). The key thing to notice is the use of
+the <code>&lt;content-column&gt;</code> tags to mark up the content of a particular column. Their
+use is what makes a two-column layout possible.</p><h3>Why aren't you using polyfills?</h3><p>While polyfills for Web Components <a href="https://www.polymer-project.org/docs/start/platform.html">do exist</a>, they're not perfect and
 require a preprocessing stage that inlines all HTML imports and rewrites the new
 CSS selectors like <code>:host</code>, <code>::content</code>, <code>/deep/</code> etc. There's no easy way to
 tie all this together and frankly, I don't care enough since I'll personally
