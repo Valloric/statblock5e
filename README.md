@@ -205,5 +205,5 @@ This software is licensed under the [Apache License, Version 2.0][apache2].
 [demo]: http://valloric.github.io/statblock5e/demo.html
 [demo2c]: http://valloric.github.io/statblock5e/demo-two-column.html
 [demo-inline]: http://valloric.github.io/statblock5e/demo-inlined.html
-[2c-img]: https://raw.githubusercontent.com/Valloric/statblock5e/gh-pages/images/statblock.png
+[2c-img]: https://raw.githubusercontent.com/Valloric/statblock5e/gh-pages/images/statblock-2c.png
 [inline-script]: https://github.com/Valloric/statblock5e/blob/master/tools/inline-imports.py
