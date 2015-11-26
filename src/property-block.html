@@ -1,22 +1,29 @@
 <template id="property-block">
   <style>
+    :host {
+      margin-top: 0.3em;
+      margin-bottom: 0.9em;
+      line-height: 1.5;
+      display: block;
+    }
+
     ::content > h4 {
       display: inline;
       font-weight: bold;
       font-style: italic;
     }
 
-    ::content > p {
+    ::content > p:first-of-type {
       display: inline;
+      text-indent: 0;
     }
 
-    p {
-      margin-top: 0.3em;
-      margin-bottom: 0.9em;
-      line-height: 1.5;
+    ::content > p {
+      text-indent: 1em;
+      margin: 0;
     }
   </style>
-  <p><content></content></p>
+  <content></content>
 </template>
 
 <script>
