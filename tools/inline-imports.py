@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
+import argparse
 import os.path as p
 from bs4 import BeautifulSoup
 
 DIR_OF_THIS_SCRIPT = p.dirname( p.abspath( __file__ ) )
-PATH_TO_DEMO_SCRIPT = p.join( DIR_OF_THIS_SCRIPT, '../demo.html' )
 
 def getDocument( content ):
   return BeautifulSoup( content, 'html5lib', from_encoding = 'utf-8' )
@@ -34,18 +34,23 @@ def recursiveInline( path, already_inlined, final_doc ):
       final_doc.head.append( child )
 
 
-def finalDoc():
+def finalDoc( filename ):
   already_inlined = set()
   doc = getDocument( '' )
-  recursiveInline( PATH_TO_DEMO_SCRIPT, already_inlined, doc )
-  new_doc = getDocument( open( PATH_TO_DEMO_SCRIPT ).read() )
+  recursiveInline( filename, already_inlined, doc )
+  new_doc = getDocument( open( filename ).read() )
   doc.body.append( new_doc.find( 'stat-block') )
   return doc
 
+def parseArgs():
+  parser = argparse.ArgumentParser( description='Inlines HTML imports.' )
+  parser.add_argument( '--filename', '-f', required=True, help='file to inline' )
+  return parser.parse_args()
 
 def main():
+  args = parseArgs()
   print '<!DOCTYPE html>'
-  print finalDoc()
+  print finalDoc( p.abspath( args.filename ) )
 
 
 if __name__ == "__main__":
