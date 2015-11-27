@@ -271,66 +271,17 @@
   });
   thatDoc.registerElement(elemName, {prototype: proto});
 })(window, document);
-</script><template id="content-column">
-  <style>
-    :host {
-      display: block;
-      width: 400px;
-    }
-
-    ::content > h3 {
-      border-bottom: 1px solid #7A200D;
-      color: #7A200D;
-      font-size: 21px;
-      font-variant: small-caps;
-      font-weight: normal;
-      letter-spacing: 1px;
-      margin: 0;
-      margin-bottom: 0.3em;
-    }
-
-    /* For user-level p elems. */
-    ::content > p {
-      margin-top: 0.3em;
-      margin-bottom: 0.9em;
-      line-height: 1.5;
-    }
-
-    /* Last child shouldn't have bottom margin, too much white space. */
-    ::content > *:last-child {
-      margin-bottom: 0;
-    }
-
-    /* If anything but a <creature-heading> is the first child, then we are the
-    second column and thus the first item should have no top margin. */
-    ::content > :not(creature-heading):first-child {
-      margin-top: 0;
-    }
-  </style>
-  <content></content>
-</template><script>
-(function(window, document) {
-  var elemName = 'content-column';
-  var thatDoc = document;
-  var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
-  var proto = Object.create(HTMLElement.prototype, {
-    createdCallback: {
-      value: function() {
-        var template = thisDoc.getElementById(elemName);
-        var clone = thatDoc.importNode(template.content, true);
-        this.createShadowRoot().appendChild(clone);
-      }
-    }
-  });
-  thatDoc.registerElement(elemName, {prototype: proto});
-})(window, document);
 </script><template id="stat-block">
   <style>
-    :host {
-      display: block;
+    .bar {
+      height: 5px;
+      background: #E69A28;
+      border: 1px solid #000;
+      position: relative;
+      z-index: 1;
     }
 
-    #outer-wrap {
+    :host {
       display: inline-block;
     }
 
@@ -338,8 +289,6 @@
       font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial,
                     sans-serif;
       font-size: 13.5px;
-      display: flex;
-      justify-content: space-between;
       background: #FDF1DC;
       padding: 0.6em;
       padding-bottom: 0.5em;
@@ -353,27 +302,55 @@
       /* Leaving room for the two bars to protrude outwards */
       margin-left: 2px;
       margin-right: 2px;
+
+      /* This is possibly overriden by next CSS rule. */
+      width: 400px;
+
+      -webkit-columns: 400px;
+         -moz-columns: 400px;
+              columns: 400px;
+      -webkit-column-gap: 40px;
+         -moz-column-gap: 40px;
+              column-gap: 40px;
     }
 
-    ::content > content-column + content-column {
-      margin-left: 40px;
+    :host([data-two-column]) #content-wrap {
+      /* One column is 400px and the gap between them is 40px. */
+      width: 840px;
     }
 
-    .bar {
-      height: 5px;
-      background: #E69A28;
-      border: 1px solid #000;
-      position: relative;
-      z-index: 1;
+    ::content > h3 {
+      border-bottom: 1px solid #7A200D;
+      color: #7A200D;
+      font-size: 21px;
+      font-variant: small-caps;
+      font-weight: normal;
+      letter-spacing: 1px;
+      margin: 0;
+      margin-bottom: 0.3em;
+
+      break-before: column;
+      break-inside: avoid-column;
+      break-after: avoid-column;
+    }
+
+    /* For user-level p elems. */
+    ::content > p {
+      margin-top: 0.3em;
+      margin-bottom: 0.9em;
+      line-height: 1.5;
+    }
+
+    /* Last child shouldn't have bottom margin, too much white space. */
+    ::content > *:last-child {
+      margin-bottom: 0;
     }
   </style>
-  <div id="outer-wrap">
-    <div class="bar"></div>
-    <div id="content-wrap">
-      <content></content>
-    </div>
-    <div class="bar"></div>
+  <div class="bar"></div>
+  <div id="content-wrap">
+    <content></content>
   </div>
+  <div class="bar"></div>
 </template><script>
 (function(window, document) {
   var elemName = 'stat-block';
@@ -383,15 +360,11 @@
     createdCallback: {
       value: function() {
         var template = thisDoc.getElementById(elemName);
-
-        // We support not wrapping the contents inside <stat-block> with
-        // <content-column> to simplify the most common use-case of only a
-        // single column. If the user doesn't do the wrapping, we do it for
-        // them.
-        if (this.firstElementChild.tagName !== 'CONTENT-COLUMN') {
+        // If the attr() CSS3 function were properly implemented, we wouldn't
+        // need this hack...
+        if (this.hasAttribute('data-content-height')) {
           var wrap = template.content.getElementById('content-wrap');
-          wrap.innerHTML = '<content-column>' + wrap.innerHTML +
-                           '</content-column>';
+          wrap.style.height = this.getAttribute('data-content-height') + 'px';
         }
         var clone = thatDoc.importNode(template.content, true);
         this.createShadowRoot().appendChild(clone);
