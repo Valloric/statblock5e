@@ -271,66 +271,17 @@
   });
   thatDoc.registerElement(elemName, {prototype: proto});
 })(window, document);
-</script><template id="content-column">
-  <style>
-    :host {
-      display: block;
-      width: 400px;
-    }
-
-    ::content > h3 {
-      border-bottom: 1px solid #7A200D;
-      color: #7A200D;
-      font-size: 21px;
-      font-variant: small-caps;
-      font-weight: normal;
-      letter-spacing: 1px;
-      margin: 0;
-      margin-bottom: 0.3em;
-    }
-
-    /* For user-level p elems. */
-    ::content > p {
-      margin-top: 0.3em;
-      margin-bottom: 0.9em;
-      line-height: 1.5;
-    }
-
-    /* Last child shouldn't have bottom margin, too much white space. */
-    ::content > *:last-child {
-      margin-bottom: 0;
-    }
-
-    /* If anything but a <creature-heading> is the first child, then we are the
-    second column and thus the first item should have no top margin. */
-    ::content > :not(creature-heading):first-child {
-      margin-top: 0;
-    }
-  </style>
-  <content></content>
-</template><script>
-(function(window, document) {
-  var elemName = 'content-column';
-  var thatDoc = document;
-  var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
-  var proto = Object.create(HTMLElement.prototype, {
-    createdCallback: {
-      value: function() {
-        var template = thisDoc.getElementById(elemName);
-        var clone = thatDoc.importNode(template.content, true);
-        this.createShadowRoot().appendChild(clone);
-      }
-    }
-  });
-  thatDoc.registerElement(elemName, {prototype: proto});
-})(window, document);
 </script><template id="stat-block">
   <style>
-    :host {
-      display: block;
+    .bar {
+      height: 5px;
+      background: #E69A28;
+      border: 1px solid #000;
+      position: relative;
+      z-index: 1;
     }
 
-    #outer-wrap {
+    :host {
       display: inline-block;
     }
 
@@ -338,8 +289,6 @@
       font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial,
                     sans-serif;
       font-size: 13.5px;
-      display: flex;
-      justify-content: space-between;
       background: #FDF1DC;
       padding: 0.6em;
       padding-bottom: 0.5em;
@@ -353,27 +302,55 @@
       /* Leaving room for the two bars to protrude outwards */
       margin-left: 2px;
       margin-right: 2px;
+
+      /* This is possibly overriden by next CSS rule. */
+      width: 400px;
+
+      -webkit-columns: 400px;
+         -moz-columns: 400px;
+              columns: 400px;
+      -webkit-column-gap: 40px;
+         -moz-column-gap: 40px;
+              column-gap: 40px;
     }
 
-    ::content > content-column + content-column {
-      margin-left: 40px;
+    :host([data-two-column]) #content-wrap {
+      /* One column is 400px and the gap between them is 40px. */
+      width: 840px;
     }
 
-    .bar {
-      height: 5px;
-      background: #E69A28;
-      border: 1px solid #000;
-      position: relative;
-      z-index: 1;
+    ::content > h3 {
+      border-bottom: 1px solid #7A200D;
+      color: #7A200D;
+      font-size: 21px;
+      font-variant: small-caps;
+      font-weight: normal;
+      letter-spacing: 1px;
+      margin: 0;
+      margin-bottom: 0.3em;
+
+      break-before: column;
+      break-inside: avoid-column;
+      break-after: avoid-column;
+    }
+
+    /* For user-level p elems. */
+    ::content > p {
+      margin-top: 0.3em;
+      margin-bottom: 0.9em;
+      line-height: 1.5;
+    }
+
+    /* Last child shouldn't have bottom margin, too much white space. */
+    ::content > *:last-child {
+      margin-bottom: 0;
     }
   </style>
-  <div id="outer-wrap">
-    <div class="bar"></div>
-    <div id="content-wrap">
-      <content></content>
-    </div>
-    <div class="bar"></div>
+  <div class="bar"></div>
+  <div id="content-wrap">
+    <content></content>
   </div>
+  <div class="bar"></div>
 </template><script>
 (function(window, document) {
   var elemName = 'stat-block';
@@ -383,15 +360,11 @@
     createdCallback: {
       value: function() {
         var template = thisDoc.getElementById(elemName);
-
-        // We support not wrapping the contents inside <stat-block> with
-        // <content-column> to simplify the most common use-case of only a
-        // single column. If the user doesn't do the wrapping, we do it for
-        // them.
-        if (this.firstElementChild.tagName !== 'CONTENT-COLUMN') {
+        // If the attr() CSS3 function were properly implemented, we wouldn't
+        // need this hack...
+        if (this.hasAttribute('data-content-height')) {
           var wrap = template.content.getElementById('content-wrap');
-          wrap.innerHTML = '<content-column>' + wrap.innerHTML +
-                           '</content-column>';
+          wrap.style.height = this.getAttribute('data-content-height') + 'px';
         }
         var clone = thatDoc.importNode(template.content, true);
         this.createShadowRoot().appendChild(clone);
@@ -402,132 +375,129 @@
 })(window, document);
 </script>
   
+  
 
 
-<stat-block>
-    <content-column>
-      <creature-heading>
-        <h1>Werewolf Alpha</h1>
-        <h2>Medium humanoid (human, shapechanger), chaotic evil</h2>
-      </creature-heading>
+<stat-block data-content-height="671" data-two-column="">
+    <creature-heading>
+      <h1>Werewolf Alpha</h1>
+      <h2>Medium humanoid (human, shapechanger), chaotic evil</h2>
+    </creature-heading>
 
-      <top-stats>
-        <property-line>
-          <h4>Armor Class</h4>
-          <p>14 (armor scraps) in humanoid form, 16 (natural armor) in wolf
-            or hybrid form</p>
-        </property-line>
-        <property-line>
-          <h4>Hit Points</h4>
-          <p>119 (14d8 + 56)</p>
-        </property-line>
-        <property-line>
-          <h4>Speed</h4>
-          <p>30 ft. (40 ft. in wolf form)</p>
-        </property-line>
-
-        <abilities-block data-cha="15" data-con="18" data-dex="15" data-int="11" data-str="20" data-wis="14"></abilities-block>
-        <property-line>
-          <h4>Saving Throws</h4>
-          <p>Str +9, Con +8, Wis +6</p>
-        </property-line>
-        <property-line>
-          <h4>Skills</h4>
-          <p>Athletics +9, Perception +6</p>
-        </property-line>
-        <property-line>
-          <h4>Damage Immunities</h4>
-          <p>bludgeoning, piercing, and slashing damage from nonmagical weapons
-            that aren't silvered</p>
-        </property-line>
-        <property-line>
-          <h4>Senses</h4>
-          <p>passive Perception 16</p>
-        </property-line>
-        <property-line>
-          <h4>Languages</h4>
-          <p>Common (can't speak in wolf form)</p>
-        </property-line>
-        <property-line>
-          <h4>Challenge</h4>
-          <p>9 (5,000 XP)</p>
-        </property-line>
-      </top-stats>
-
-
-      <property-block>
-        <h4>Legendary Resistance (3/Day).</h4>
-        <p>If the werewolf fails a saving throw, it can choose to succeed
-          instead.</p>
-      </property-block>
-
-      <property-block>
-        <h4>Keen Hearing and Smell.</h4>
-        <p>The werewolf has advantage on Wisdom (Perception) checks that rely on
-          hearing or smell.</p>
-      </property-block>
-
-      <property-block>
-        <h4>Pack Leader.</h4>
-        <p>The werewolf's allies have advantage on melee attack rolls against
-          any hostile creature within 5 feet of the werewolf.</p>
-      </property-block>
-
-      <property-block>
-        <h4>Shapechanger.</h4>
-        <p>The werewolf can use its action to polymorph into a wolf-humanoid
-          hybrid or into a wolf, or back into its true form, which is humanoid.
-          Its statistics, other than its AC, are the same in each form. Any
-          equipment it is wearing or carrying isn't transformed. It reverts to
-          its true form if it dies.</p>
-      </property-block>
-    </content-column>
-
-    <content-column>
-      <h3>Actions</h3>
-
-      <property-block>
-        <h4>Multiattack (Hybrid Form Only).</h4>
-        <p>The werewolf makes three attacks: one with its bite and two with its
-          claws.</p>
-      </property-block>
-
-      <property-block>
-        <h4>Bite (Wolf or Hybrid Form Only).</h4>
-        <p><i>Melee Weapon Attack:</i> +9 to hit, reach 5 ft., one target.
-          <i>Hit:</i> 14 (2d8 + 5) piercing damage. If the target is a humanoid,
-          it must succeed on a DC 14 Constitution saving throw or be cursed with
-          werewolf lycanthropy.</p>
-      </property-block>
-
-      <property-block>
-        <h4>Claws (Hybrid Form Only).</h4>
-        <p><i>Melee Weapon Attack:</i> +9 to hit, reach 5 ft., one target.
-          <i>Hit:</i> 16 (2d10 + 5) slashing damage.</p>
-      </property-block>
-
-      <h3>Legendary Actions</h3>
-      <p>The werewolf can take 3 legendary actions, choosing from the
-      options below. Only one legendary action option can be used at a
-      time and only at the end of another creature's turn. The werewolf
-      regains spent legendary actions at the start of its turn.</p>
-
+    <top-stats>
       <property-line>
-        <h4>Leap.</h4>
-        <p>The werewolf moves up to its speed without provoking
-          opportunity attacks.</p>
+        <h4>Armor Class</h4>
+        <p>14 (armor scraps) in humanoid form, 16 (natural armor) in wolf
+          or hybrid form</p>
+      </property-line>
+      <property-line>
+        <h4>Hit Points</h4>
+        <p>119 (14d8 + 56)</p>
+      </property-line>
+      <property-line>
+        <h4>Speed</h4>
+        <p>30 ft. (40 ft. in wolf form)</p>
       </property-line>
 
+      <abilities-block data-cha="15" data-con="18" data-dex="15" data-int="11" data-str="20" data-wis="14"></abilities-block>
       <property-line>
-        <h4>Bark Orders.</h4>
-        <p>The werewolf chooses a friendly creature who can
-          see or hear it. That creature can use its reaction to move up to its
-          speed without provoking opportunity attacks.</p>
+        <h4>Saving Throws</h4>
+        <p>Str +9, Con +8, Wis +6</p>
       </property-line>
+      <property-line>
+        <h4>Skills</h4>
+        <p>Athletics +9, Perception +6</p>
+      </property-line>
+      <property-line>
+        <h4>Damage Immunities</h4>
+        <p>bludgeoning, piercing, and slashing damage from nonmagical weapons
+          that aren't silvered</p>
+      </property-line>
+      <property-line>
+        <h4>Senses</h4>
+        <p>passive Perception 16</p>
+      </property-line>
+      <property-line>
+        <h4>Languages</h4>
+        <p>Common (can't speak in wolf form)</p>
+      </property-line>
+      <property-line>
+        <h4>Challenge</h4>
+        <p>9 (5,000 XP)</p>
+      </property-line>
+    </top-stats>
 
-      <property-line>
-        <h4>Frenzy (Costs 2 Actions).</h4>
-        <p>The werewolf can make one claw attack against each creature within 5
-          feet of it.</p>
-      </property-line>
-  </content-column></stat-block></body></html>
+
+    <property-block>
+      <h4>Legendary Resistance (3/Day).</h4>
+      <p>If the werewolf fails a saving throw, it can choose to succeed
+        instead.</p>
+    </property-block>
+
+    <property-block>
+      <h4>Keen Hearing and Smell.</h4>
+      <p>The werewolf has advantage on Wisdom (Perception) checks that rely on
+        hearing or smell.</p>
+    </property-block>
+
+    <property-block>
+      <h4>Pack Leader.</h4>
+      <p>The werewolf's allies have advantage on melee attack rolls against
+        any hostile creature within 5 feet of the werewolf.</p>
+    </property-block>
+
+    <property-block>
+      <h4>Shapechanger.</h4>
+      <p>The werewolf can use its action to polymorph into a wolf-humanoid
+        hybrid or into a wolf, or back into its true form, which is humanoid.
+        Its statistics, other than its AC, are the same in each form. Any
+        equipment it is wearing or carrying isn't transformed. It reverts to
+        its true form if it dies.</p>
+    </property-block>
+    <h3>Actions</h3>
+
+    <property-block>
+      <h4>Multiattack (Hybrid Form Only).</h4>
+      <p>The werewolf makes three attacks: one with its bite and two with its
+        claws.</p>
+    </property-block>
+
+    <property-block>
+      <h4>Bite (Wolf or Hybrid Form Only).</h4>
+      <p><i>Melee Weapon Attack:</i> +9 to hit, reach 5 ft., one target.
+        <i>Hit:</i> 14 (2d8 + 5) piercing damage. If the target is a humanoid,
+        it must succeed on a DC 14 Constitution saving throw or be cursed with
+        werewolf lycanthropy.</p>
+    </property-block>
+
+    <property-block>
+      <h4>Claws (Hybrid Form Only).</h4>
+      <p><i>Melee Weapon Attack:</i> +9 to hit, reach 5 ft., one target.
+        <i>Hit:</i> 16 (2d10 + 5) slashing damage.</p>
+    </property-block>
+
+    <h3>Legendary Actions</h3>
+    <p>The werewolf can take 3 legendary actions, choosing from the
+    options below. Only one legendary action option can be used at a
+    time and only at the end of another creature's turn. The werewolf
+    regains spent legendary actions at the start of its turn.</p>
+
+    <property-line>
+      <h4>Leap.</h4>
+      <p>The werewolf moves up to its speed without provoking
+        opportunity attacks.</p>
+    </property-line>
+
+    <property-line>
+      <h4>Bark Orders.</h4>
+      <p>The werewolf chooses a friendly creature who can
+        see or hear it. That creature can use its reaction to move up to its
+        speed without provoking opportunity attacks.</p>
+    </property-line>
+
+    <property-line>
+      <h4>Frenzy (Costs 2 Actions).</h4>
+      <p>The werewolf can make one claw attack against each creature within 5
+        feet of it.</p>
+    </property-line>
+  </stat-block></body></html>

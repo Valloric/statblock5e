@@ -14,8 +14,9 @@ Elements][custom-elements], [Shadow DOM][shadow-dom] and the HTML5 [template][]
 element.
 
 Since Chrome is [currently the only browser][wc-status] that implements all of
-the above specs, **statblock5e only works in Chrome.** (Firefox is close to
-providing all the necessary support but it's all behind flags.)
+the above specs, **statblock5e only works in Chrome.** Make sure you are using
+_at least_ Chrome 45. (Firefox is close to providing all the necessary support
+but it's all behind flags.)
 
 <div align="center">
   <p><a href="http://valloric.github.io/statblock5e/demo.html">
@@ -155,9 +156,10 @@ available][inline-script].
 ### How do I make two-column layouts?
 
 See the [`demo-two-column.html`][demo2c] file ([here's a rendered
-image][2c-img]). The key thing to notice is the use of
-the `<content-column>` tags to mark up the content of a particular column. Their
-use is what makes a two-column layout possible.
+image][2c-img]). The key thing to notice is the use of the `data-two-column`
+attribute on the `<stat-block>` element. You can also use the
+`data-content-height` attribute to tweak the layout. See the comments in the
+file for details.
 
 ### Why aren't you using polyfills?
 
@@ -172,6 +174,9 @@ pipeline, pull requests are welcome.
 
 Version History
 ---------------
+
+### 0.0.3
+- Simpler way of supporting two-column layout.
 
 ### 0.0.2
 - `<property-line>` can now be used for legendary actions since it doesn't
