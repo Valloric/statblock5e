@@ -146,8 +146,8 @@ document.</p><p>The Python script that produces the inlined version <a href="htt
 available</a>.</p><h3>How do I make two-column layouts?</h3><p>See the <a href="http://valloric.github.io/statblock5e/demo-two-column.html"><code>demo-two-column.html</code></a> file (<a href="https://raw.githubusercontent.com/Valloric/statblock5e/gh-pages/images/statblock-2c.png">here's a rendered
 image</a>). The key thing to notice is the use of the <code>data-two-column</code>
 attribute on the <code>&lt;stat-block&gt;</code> element. You can also use the
-<code>data-content-height</code> attribute to tweak the layout. See the comments in the
-file for details.</p><h3>Why aren't you using polyfills?</h3><p>While polyfills for Web Components <a href="https://www.polymer-project.org/docs/start/platform.html">do exist</a>, they're not perfect and
+<code>data-content-height</code> attribute to tweak the layout. See <a href="https://github.com/Valloric/statblock5e/blob/9c71e07d7a69aeb443ae9684dd3b73ef15a63f51/demo-two-column.html#L28">the
+comments</a> in the demo file for details.</p><h3>Why aren't you using polyfills?</h3><p>While polyfills for Web Components <a href="https://www.polymer-project.org/docs/start/platform.html">do exist</a>, they're not perfect and
 require a preprocessing stage that inlines all HTML imports and rewrites the new
 CSS selectors like <code>:host</code>, <code>::content</code>, <code>/deep/</code> etc. There's no easy way to
 tie all this together and frankly, I don't care enough since I'll personally

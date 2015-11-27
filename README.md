@@ -158,8 +158,8 @@ available][inline-script].
 See the [`demo-two-column.html`][demo2c] file ([here's a rendered
 image][2c-img]). The key thing to notice is the use of the `data-two-column`
 attribute on the `<stat-block>` element. You can also use the
-`data-content-height` attribute to tweak the layout. See the comments in the
-file for details.
+`data-content-height` attribute to tweak the layout. See [the
+comments][2c-comment] in the demo file for details.
 
 ### Why aren't you using polyfills?
 
@@ -212,3 +212,4 @@ This software is licensed under the [Apache License, Version 2.0][apache2].
 [demo-inline]: http://valloric.github.io/statblock5e/demo-inlined.html
 [2c-img]: https://raw.githubusercontent.com/Valloric/statblock5e/gh-pages/images/statblock-2c.png
 [inline-script]: https://github.com/Valloric/statblock5e/blob/master/tools/inline-imports.py
+[2c-comment]: https://github.com/Valloric/statblock5e/blob/9c71e07d7a69aeb443ae9684dd3b73ef15a63f51/demo-two-column.html#L28
