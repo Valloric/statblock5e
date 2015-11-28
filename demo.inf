@@ -1,6 +1,7 @@
 
 
 [Character]
+Name=Animated Armor
 Type=Medium Construct
 Alignment=Unaligned
 ArmorClass=18 (natural)
@@ -20,3 +21,6 @@ False Appearance=While the armor remains motionless, it is indistinguishable fro
 Multi Attack=The armor makes two melee attacks.
 Slam=Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) bludgeoning damage.
 
+
+[Faggotree]
+Skills = Can suck lots of dick

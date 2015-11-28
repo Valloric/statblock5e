@@ -1,3 +1,4 @@
+#from ConfigParser import ConfigParser
 from ConfigParser import ConfigParser
 import sys
 
@@ -29,7 +30,6 @@ def template_generator(configfile):
             custom += '  <p>%s</p>\n' % value
             custom += '</property-block>\n'
     character['CUSTOM'] = custom
-    print(character)
 
     with open(TEMPLATE_FILE, 'rb') as template:
         t = template.read()
