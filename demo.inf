@@ -12,6 +12,12 @@ ConditionImmunities=blinded, charmed, deafened, exhaustion, frightened, paralyze
 Senses=blindsight 60 ft. (blind beyond this radius), passive Perception 6
 Languages=None
 Challenge=1 (200 xp)
+Cha=10
+Con=10
+Dex=10
+Int=10
+Str=10
+Wis=10
 
 [Attributes]
 Anti Magic Susceptibility=The armor is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the armor must succeed on a Constitution saving throw against the caster’s spell save DC or fall unconscious for 1 minute.
