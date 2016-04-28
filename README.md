@@ -175,6 +175,9 @@ pipeline, pull requests are welcome.
 Version History
 ---------------
 
+### 0.0.4
+- Fixed issue with text floating outside the statblock on Chrome 50+.
+
 ### 0.0.3
 - Simpler way of supporting two-column layout.
 

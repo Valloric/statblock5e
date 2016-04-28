@@ -1,6 +1,6 @@
 {
     "name": "statblock5e",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "description": "A web component for D&D 5E statblocks.",
     "authors": [
       "Val Markovic <val@markovic.io> (http://val.markovic.io)"
