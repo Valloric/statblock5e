@@ -312,6 +312,11 @@
       -webkit-column-gap: 40px;
          -moz-column-gap: 40px;
               column-gap: 40px;
+
+      /* When height is constrained, we want sequential filling of columns. */
+      -webkit-column-fill: auto;
+         -moz-column-fill: auto;
+              column-fill: auto;
     }
 
     :host([data-two-column]) #content-wrap {
@@ -329,7 +334,6 @@
       margin: 0;
       margin-bottom: 0.3em;
 
-      break-before: column;
       break-inside: avoid-column;
       break-after: avoid-column;
     }
