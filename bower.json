@@ -1,18 +1,23 @@
 {
-    "name": "statblock5e",
-    "version": "0.0.4",
-    "description": "A web component for D&D 5E statblocks.",
-    "authors": [
-      "Val Markovic <val@markovic.io> (http://val.markovic.io)"
-    ],
-    "license": "Apache-2.0",
-    "main": "src/statblock5e.html",
-    "keywords": [
-        "D&D", "D&D5e", "web component"
-    ],
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components"
-    ]
+  "name": "statblock5e",
+  "version": "0.0.4",
+  "description": "A web component for D&D 5E statblocks.",
+  "authors": [
+    "Val Markovic <val@markovic.io> (http://val.markovic.io)"
+  ],
+  "license": "Apache-2.0",
+  "main": "src/statblock5e.html",
+  "keywords": [
+    "D&D",
+    "D&D5e",
+    "web component"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.1.1"
+  }
 }
