@@ -23,7 +23,31 @@
       value: function() {
         var template = thisDoc.getElementById(elemName);
         var clone = thatDoc.importNode(template.content, true);
-        this.createShadowRoot().appendChild(clone);
+        var shadowRoot = this.createShadowRoot();
+
+        if (window.WebComponents && window.WebComponents.ShadowCSS) {
+          // Some things like ::content and ::host, for example, can't be shimmed.
+          var elem = template.content.getElementsByTagName('style')[0];
+
+          // Note: template.content only exists the first time createdCallback runs.
+          // On subsequent calls, elem will be undefined and it doesn't matter, because
+          // the styles will have already been properly applied. I am not sure whether
+          // or not this is intentional, but the v0 lifecycle methods do not have a good
+          // clean way to handle this.
+          // So we do this the first time, and that's it.
+          if (elem) {
+            var style = elem.textContent;
+            style = style.replace(/::content >/g, '');
+            style = style.replace(/:host /g, elemName);
+            shadowRoot.innerHTML = `<style>${style}<style>`;
+            WebComponents.ShadowCSS.shimStyling(
+              template.content,
+              this.tagName
+            );
+          }
+        }
+
+        shadowRoot.appendChild(clone);
       }
     }
   });
