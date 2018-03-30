@@ -3,9 +3,9 @@
 <template id="stat-block">
   <style>
     .bar {
-      height: 5px;
       background: #E69A28;
       border: 1px solid #000;
+      height: 5px;
       position: relative;
       z-index: 1;
     }
@@ -15,12 +15,15 @@
     }
 
     #content-wrap {
+      padding: 0.6em;
+    }
+
+    #box-wrap {
       font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial,
                     sans-serif;
       font-size: 13.5px;
       background: #FDF1DC;
-      padding: 0.6em;
-      padding-bottom: 0.5em;
+      margin-bottom: 0.5em;
       border: 1px #DDD solid;
       box-shadow: 0 0 1.5em #867453;
 
@@ -79,11 +82,13 @@
       margin-bottom: 0;
     }
   </style>
-  <div class="bar"></div>
-  <div id="content-wrap">
-    <content></content>
+  <div id="box-wrap">
+    <div class="bar"></div>
+    <div id="content-wrap">
+      <content></content>
+    </div>
+    <div class="bar"></div>
   </div>
-  <div class="bar"></div>
 </template>
 
 <script>
