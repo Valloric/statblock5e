@@ -9,13 +9,13 @@ almost exactly like the statblocks from the 5th edition D&D Monster Manual.
 </div>
 
 This is implemented as a set of custom elements following the [Web
-Components][web-components] specs: [HTML Imports][html-import], [Custom
+Components][web-components] specs: [ES Modules][es-module], [Custom
 Elements][custom-elements], [Shadow DOM][shadow-dom] and the HTML5 [template][]
 element.
 
 Since Chrome is [currently the only browser][wc-status] that implements all of
 the above specs, **statblock5e only works in Chrome.** Make sure you are using
-_at least_ Chrome 45. (Firefox is close to providing all the necessary support
+_at least_ Chrome 61. (Firefox is close to providing all the necessary support
 but it's all behind flags.)
 
 <div align="center">
@@ -175,6 +175,15 @@ pipeline, pull requests are welcome.
 Version History
 ---------------
 
+### 0.0.5
+- Updated to the WebComponents v1 spec, since [several aspects of WebComponents v0 are being removed in Chrome 73][chrome-70-deprecations].
+  - Use ES Modules instead of HTML Imports.
+  - Use Custom Elements v1 instead of `registerElement()`.
+  - Use `createShadowRoot()` instead of `attachShadow()`.
+  - Use `<slot>` instead of `<content>`.
+- Define `data-content-height` as a CSS custom property instead of as an HTML attribute, so we don't have to use a javascript hack to set the height of the stat-block.
+- Rewrite `inline-imports.py` to parse the ES module and HTML template files.
+
 ### 0.0.4
 - Fixed issue with text floating outside the statblock on Chrome 50+.
 
@@ -201,7 +210,7 @@ License
 This software is licensed under the [Apache License, Version 2.0][apache2].
 
 [web-components]: http://webcomponents.org/
-[html-import]: http://w3c.github.io/webcomponents/spec/imports/
+[es-module]: https://html.spec.whatwg.org/multipage/webappapis.html#integration-with-the-javascript-module-system
 [custom-elements]: http://w3c.github.io/webcomponents/spec/custom/
 [template]: https://html.spec.whatwg.org/multipage/scripting.html#the-template-element
 [shadow-dom]: http://w3c.github.io/webcomponents/spec/shadow/
@@ -216,3 +225,4 @@ This software is licensed under the [Apache License, Version 2.0][apache2].
 [2c-img]: https://raw.githubusercontent.com/Valloric/statblock5e/gh-pages/images/statblock-2c.png
 [inline-script]: https://github.com/Valloric/statblock5e/blob/master/tools/inline-imports.py
 [2c-comment]: https://github.com/Valloric/statblock5e/blob/9c71e07d7a69aeb443ae9684dd3b73ef15a63f51/demo-two-column.html#L28
+[chrome-70-deprecations]: https://developers.google.com/web/updates/2018/09/chrome-70-deps-rems
