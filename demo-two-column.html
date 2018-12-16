@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Two-column statblock example</title>
+  <meta charset="UTF-8">
+  <title>Two-column statblock example</title>
 
-    <link rel="import" href="src/top-stats.html">
-    <link rel="import" href="src/creature-heading.html">
-    <link rel="import" href="src/abilities-block.html">
-    <link rel="import" href="src/property-line.html">
-    <link rel="import" href="src/property-block.html">
-    <link rel="import" href="src/stat-block.html">
+  <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic'
+        rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:700'
+        rel='stylesheet' type='text/css'>
 
-    <style>
-      body {
-        margin: 0;
-      }
+  <script type="module" src="src/js/stat-block.js"></script>
+  <script type="module" src="src/js/creature-heading.js"></script>
+  <script type="module" src="src/js/top-stats.js"></script>
+  <script type="module" src="src/js/abilities-block.js"></script>
+  <script type="module" src="src/js/property-line.js"></script>
+  <script type="module" src="src/js/property-block.js"></script>
 
-      stat-block {
-        /* A bit of margin for presentation purposes, to show off the drop
-        shadow. */
-        margin-left: 20px;
-        margin-top: 20px;
-      }
-    </style>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    stat-block {
+      /* A bit of margin for presentation purposes, to show off the drop
+      shadow. */
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
   <!--   You do NOT need to set data-content-height to get two columns! You only
@@ -35,7 +40,7 @@
        whitespace at the bottom.
          Be careful about setting a height that's too low! That will produce all
        sorts of weird results. -->
-  <stat-block data-two-column data-content-height="672">
+  <stat-block data-two-column style="--data-content-height: 672px;">
     <creature-heading>
       <h1>Werewolf Alpha</h1>
       <h2>Medium humanoid (human, shapechanger), chaotic evil</h2>
