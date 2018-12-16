@@ -33,18 +33,14 @@
 almost exactly like the statblocks from the 5th edition D&amp;D Monster Manual.</p><div align="center">
   <img src="https://raw.githubusercontent.com/Valloric/statblock5e/gh-pages/images/statblock.png"/>
 </div><p>This is implemented as a set of custom elements following the <a href="http://webcomponents.org/">Web
-Components</a> specs: <a href="http://w3c.github.io/webcomponents/spec/imports/">HTML Imports</a>, <a href="http://w3c.github.io/webcomponents/spec/custom/">Custom
-Elements</a>, <a href="http://w3c.github.io/webcomponents/spec/shadow/">Shadow DOM</a> and the HTML5 <a href="https://html.spec.whatwg.org/multipage/scripting.html#the-template-element">template</a>
-element.</p><p>Since Chrome is <a href="http://jonrimmer.github.io/are-we-componentized-yet/">currently the only browser</a> that implements all of
-the above specs, <strong>statblock5e only works in Chrome.</strong> Make sure you are using
-<em>at least</em> Chrome 45. (Firefox is close to providing all the necessary support
-but it's all behind flags.)</p><div align="center">
+Components</a> specs: <a href="https://html.spec.whatwg.org/multipage/webappapis.html#integration-with-the-javascript-module-system">ES Modules</a>, <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements">Custom
+Elements</a>, and the <a href="http://w3c.github.io/webcomponents/spec/shadow/">Shadow DOM</a>.</p><p>While statblock5e has been tested the most in Chrome, it may also work in any browser that <a href="http://webcomponents.org/">properly implements the Web Components v1 specs</a>. <strong>Make sure you are using <em>at least</em> Chrome 61 or Firefox 63.</strong></p><div align="center">
   <p><a href="http://valloric.github.io/statblock5e/demo.html">
      <b>LIVE DEMO</b></a>
   </p>
 </div><p><strong>There are <em>no</em> dependencies</strong> (JavaScript or otherwise), <strong>this is entirely
 self-contained</strong>.</p><p>There's very little JavaScript actually; just a bit of boilerplate that
-registers the elements and some minor logic for computing the ability modifiers
+defines the custom elements and some minor logic for computing the ability modifiers
 for the ability table. Other than that, it's pure HTML, CSS &amp; SVG.</p><p>Here's the markup that produced the above picture. <strong>No user-level CSS or
 JavaScript is necessary.</strong></p><pre><code class="language-markup">&lt;stat-block&gt;
   &lt;creature-heading&gt;
@@ -152,7 +148,15 @@ require a preprocessing stage that inlines all HTML imports and rewrites the new
 CSS selectors like <code>:host</code>, <code>::content</code>, <code>/deep/</code> etc. There's no easy way to
 tie all this together and frankly, I don't care enough since I'll personally
 only use this for locally hosted pages rendered in Chrome.</p><p>If someone wants to do the required work to implement the whole preprocessing
-pipeline, pull requests are welcome.</p><h2>Version History</h2><h3>0.0.4</h3><ul>
+pipeline, pull requests are welcome.</p><h2>Version History</h2><h3>0.0.5</h3><ul>
+<li>Updated to the WebComponents v1 spec, since <a href="https://developers.google.com/web/updates/2018/09/chrome-70-deps-rems">several aspects of WebComponents v0 are being removed in Chrome 73</a>.</li>
+<li>Use ES Modules instead of HTML Imports.</li>
+<li>Use Custom Elements v1 instead of <code>registerElement()</code>.</li>
+<li>Use <code>createShadowRoot()</code> instead of <code>attachShadow()</code>.</li>
+<li>Use <code>&lt;slot&gt;</code> instead of <code>&lt;content&gt;</code>.</li>
+<li>Define <code>data-content-height</code> as a CSS custom property instead of as an HTML attribute, so we don't have to use a javascript hack to set the height of the stat-block.</li>
+<li>Rewrite <code>inline-imports.py</code> to parse the ES module and HTML template files.</li>
+</ul><h3>0.0.4</h3><ul>
 <li>Fixed issue with text floating outside the statblock on Chrome 50+.</li>
 </ul><h3>0.0.3</h3><ul>
 <li>Simpler way of supporting two-column layout.</li>
