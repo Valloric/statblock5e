@@ -1,5 +1,5 @@
-import {createCustomElement} from '/src/js/helpers/create-custom-element.js';
-import '/src/js/tapered-rule.js';
+import {createCustomElement} from './helpers/create-custom-element.js';
+import './tapered-rule.js';
 
 // Inline extraction START
 function abilityModifier(abilityScore) {

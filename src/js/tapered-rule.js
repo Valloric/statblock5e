@@ -1,6 +1,6 @@
-import {createCustomElement} from '/src/js/helpers/create-custom-element.js';
+import {createCustomElement} from './helpers/create-custom-element.js';
 
-fetch('src/templates/tapered-rule.html')
+fetch('./src/templates/tapered-rule.html')
   .then(stream => stream.text())
   .then(htmlContent => {
     let contentNode =
