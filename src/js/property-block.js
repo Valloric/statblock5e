@@ -1,6 +1,6 @@
-import {createCustomElement} from '/src/js/helpers/create-custom-element.js';
+import {createCustomElement} from './helpers/create-custom-element.js';
 
-fetch('src/templates/property-block.html')
+fetch('./src/templates/property-block.html')
   .then(stream => stream.text())
   .then(htmlContent => {
     let contentNode =
